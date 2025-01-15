@@ -8,7 +8,7 @@ interface RoutesLayoutProps {
 
 function LayoutProvider({ children }: RoutesLayoutProps) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col space-y-10">
       <Navbar />
       {children}
       <Footer />
