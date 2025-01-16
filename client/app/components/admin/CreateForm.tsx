@@ -13,6 +13,10 @@ import {
   GiPoloShirt,
 } from "react-icons/gi";
 import Button from "../general/Button";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import FileBase from "react-file-base64";
+import Image from "next/image";
 
 function CreateForm() {
   const categoryList = [
@@ -49,7 +53,7 @@ function CreateForm() {
       name: "",
       description: "",
       category: "",
-      images: "",
+      images: [],
       stock: 1,
       isActive: false,
       discountPercent: 0,
@@ -57,13 +61,44 @@ function CreateForm() {
     },
   });
 
+  const [images, setImages] = useState<string[]>([]);
+
   const onSubmit: SubmitErrorHandler<FieldValues> = (data) => {
-    console.log("data", data);
+    try {
+      const formData = { ...data, images };
+      console.log("Form Data", formData);
+
+      toast.success("Product Created", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Product Not Created!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   const category = watch("category");
 
-  const setCustomValue = (id: string, value: string | number | boolean) => {
+  const setCustomValue = (
+    id: string,
+    value: string | number | boolean | FileList
+  ) => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -72,30 +107,57 @@ function CreateForm() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
+    <div className="w-full min-h-screen flex flex-col items-center bg-gray-50 p-6 rounded-md">
       <Heading center text="Create Product" />
-      <div>
+      <form
+        className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 space-y-6"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Input
-          placeholder="product name"
+          placeholder="Product Name"
           id="name"
           type="text"
           errors={errors}
           register={register}
         />
         <Input
-          placeholder="product description"
+          placeholder="Product Description"
           id="description"
           type="text"
           errors={errors}
           register={register}
         />
         <Input
-          placeholder="product price"
+          placeholder="Product Price"
           id="price"
           type="number"
           errors={errors}
           register={register}
         />
+        <div>
+          <label className="block mb-2 text-sm font-medium text-gray-700">
+            Product Images
+          </label>
+          <FileBase
+            multiple={true}
+            onDone={(files: { base64: string }[]) =>
+              setImages(files.map((file) => file.base64))
+            }
+          />
+          <div className="mt-4 flex gap-4 flex-wrap">
+            {images.map((img, index) => (
+              <div key={index} className="w-20 h-20 relative">
+                <Image
+                  src={img}
+                  alt={`preview-${index}`}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md border"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
         <CheckBox
           label="Is the product active?"
           id="isActive"
@@ -112,8 +174,8 @@ function CreateForm() {
             />
           ))}
         </div>
-      </div>
-      <Button text="Create Product" onClick={handleSubmit(onSubmit)} />
+        <Button text="Create Product" onClick={handleSubmit(onSubmit)} />
+      </form>
     </div>
   );
 }

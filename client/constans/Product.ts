@@ -1,0 +1,96 @@
+import { Product } from "./productProps";
+
+export const products: Product[] = [
+  {
+    id: "1",
+    name: "Woman Clotcsh",
+    description: "short desc",
+    price: 2999,
+    stock: 6,
+    brand: "defacto",
+    category: "Dress",
+    inStock: true,
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+    reviews: [],
+  },
+  {
+    id: "2",
+    name: "Nike Shoes",
+    description: "short desc",
+    price: 2999,
+    brand: "Nike",
+    stock: 7,
+    category: "Shoes",
+    inStock: true,
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+    reviews: [
+      {
+        id: "64ae4e5f2c99a9e6b3e1f1c9",
+        userId: "64ae4e5f2c99a9e6b3e1f1d0",
+        productId: "64ae4e5f2c99a9e6b3e1f1c8",
+        comment: "Great shoes! Very comfortable and stylish.",
+        rating: 3,
+        createDate: "2023-07-06T06:08.330672",
+        user: {
+          id: "1555255",
+          name: "Charles",
+          email: "example@gmail.com",
+          emailVerified: null,
+          image:
+            "https://res.cloudinary.com/dgoothqal/image/upload/v1730673241/avatars/sm36sxm2i2ukv4zk6yo6.jpg",
+          hashedPassword: null,
+          createdAt: "2025-11-06T06:08.33067",
+          updatedAt: "2025-12-06T07:08.330672",
+          role: "ADMİN",
+        },
+      },
+      {
+        id: "64ae4e5f2c99a9e6b35423ec9",
+        userId: "64ae4e5f2c99a9e6b3e1f1d0",
+        productId: "64ae4e5f2c99a9e6b3e1f1c8",
+        comment: " comfortable and stylish.",
+        rating: 5,
+        createDate: "2023-07-06T06:08.330672",
+        user: {
+          id: "13377255",
+          name: "Jennie",
+          email: "example@gmail.com",
+          emailVerified: null,
+          image: "",
+          hashedPassword: null,
+          createdAt: "2025-11-06T06:08.33067",
+          updatedAt: "2025-12-06T07:08.330672",
+          role: "ADMİN",
+        },
+      },
+    ],
+  },
+  {
+    id: "3",
+    name: "Red Dress",
+    description: "short desc",
+    price: 1499,
+    brand: "Lc Waikiki",
+    category: "Accessories",
+    stock: 10,
+    inStock: true,
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
+    reviews: [],
+  },
+  {
+    id: "4",
+    name: "Resdfsdfdsffffffffffffffffffffffffffffffffffffffffffff",
+    description: "short desc",
+    price: 1499,
+    stock: 5,
+    brand: "Lc Waikiki",
+    category: "Accessories",
+    inStock: true,
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
+    reviews: [],
+  },
+];

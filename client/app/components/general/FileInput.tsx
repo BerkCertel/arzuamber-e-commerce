@@ -2,34 +2,40 @@
 
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
-interface InputProps {
+interface FileInputProps {
   id: string;
-  placeholder: string;
+  label: string;
   disabled?: boolean;
-  type: string;
   required?: boolean;
-  errors: FieldErrors;
+  multiple?: boolean;
+  errors: FieldErrors<FieldValues>;
   register: UseFormRegister<FieldValues>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({
+function FileInput({
   id,
-  placeholder,
+  label,
   disabled,
-  type,
   required,
+  multiple,
   errors,
   register,
-}: InputProps) {
+  onChange,
+}: FileInputProps) {
   return (
     <div className="flex flex-col">
+      <label htmlFor={id} className="mb-2 font-semibold">
+        {label}
+      </label>
       <input
         id={id}
-        placeholder={placeholder}
+        type="file"
         disabled={disabled}
-        type={type}
         required={required}
+        multiple={multiple}
         {...register(id, { required })}
+        onChange={onChange}
         className={`h-12 my-3 p-3 border outline-none rounded-md ${
           errors[id] ? "border-red-500" : "border-gray-300"
         }`}
@@ -41,4 +47,4 @@ function Input({
   );
 }
 
-export default Input;
+export default FileInput;

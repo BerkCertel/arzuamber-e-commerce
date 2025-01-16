@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import PageContainer from "./components/Containers/PageContainer";
 import StoreProvider from "@/store/StoreProvider";
 import LayoutProvider from "./components/layout/layout";
+import "react-multi-carousel/lib/styles.css";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
