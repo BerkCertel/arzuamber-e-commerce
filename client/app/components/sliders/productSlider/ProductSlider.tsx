@@ -1,20 +1,26 @@
+"use client";
+
 import Carousel from "react-multi-carousel";
 import Loading from "../../utils/Loading";
 import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import ProductsSliderItem from "./ProductSliderItem";
+import { Product } from "@/constans/productProps";
+import Heading from "../../general/Heading";
 
 function ProductSlider() {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 4,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 5,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -22,7 +28,9 @@ function ProductSlider() {
     },
   };
 
-  const { products, loading } = useSelector((state) => state.products);
+  const { products, loading } = useSelector(
+    (state: RootState) => state.products
+  );
 
   return (
     <div className="homepage-slider-div mt-10 border-b mb-10">
@@ -30,8 +38,8 @@ function ProductSlider() {
         <Loading />
       ) : (
         <>
-          <h3 className="text-center text-5xl font-thin mb-4">New Season</h3>
-          <hr />
+          <Heading text="New Season" center />
+
           <Carousel
             responsive={responsive}
             swipeable={true}
@@ -48,8 +56,8 @@ function ProductSlider() {
             containerClass="carousel-container"
             itemClass="flex justify-center items-center p-10"
           >
-            {products?.products?.map((product, i) => (
-              <ProductsSliderItem product={product} key={i} />
+            {products?.map((product: Product) => (
+              <ProductsSliderItem product={product} key={product.id} />
             ))}
           </Carousel>
         </>

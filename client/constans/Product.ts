@@ -6,12 +6,15 @@ export const products: Product[] = [
     name: "Woman Clotcsh",
     description: "short desc",
     price: 2999,
+    discountPercent: 45,
     stock: 6,
-    brand: "defacto",
     category: "Dress",
     inStock: true,
-    image:
+    image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+    ],
     reviews: [],
   },
   {
@@ -19,12 +22,17 @@ export const products: Product[] = [
     name: "Nike Shoes",
     description: "short desc",
     price: 2999,
-    brand: "Nike",
     stock: 7,
     category: "Shoes",
+    discountPercent: 17,
     inStock: true,
-    image:
+    image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+    ],
+
     reviews: [
       {
         id: "64ae4e5f2c99a9e6b3e1f1c9",
@@ -72,12 +80,15 @@ export const products: Product[] = [
     name: "Red Dress",
     description: "short desc",
     price: 1499,
-    brand: "Lc Waikiki",
+    discountPercent: 25,
     category: "Accessories",
     stock: 10,
     inStock: true,
-    image:
+    image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+    ],
     reviews: [],
   },
   {
@@ -85,12 +96,15 @@ export const products: Product[] = [
     name: "Resdfsdfdsffffffffffffffffffffffffffffffffffffffffffff",
     description: "short desc",
     price: 1499,
+    discountPercent: 20,
     stock: 5,
-    brand: "Lc Waikiki",
     category: "Accessories",
     inStock: true,
-    image:
+    image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
+    ],
     reviews: [],
   },
 ];
