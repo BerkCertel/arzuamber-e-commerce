@@ -38,7 +38,7 @@ function Navbar() {
       <nav className="relative bg-primary">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <div className="text-2xl font-serif font-bold">
+          <div className="text-4xl font-serif font-bold underline underline-offset-4">
             <Link href="/">ARZUAMBER</Link>
           </div>
 
@@ -60,47 +60,56 @@ function Navbar() {
               <li key={link.url} className="relative group">
                 <Link
                   href={link.url}
-                  className="text-mywhite hover:text-thirdLight transition-all duration-300"
+                  className="text-mywhite text-xl  hover:text-thirdLight transition-all duration-300"
                 >
                   {link.name}
                 </Link>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-mywhite transition-all duration-500 group-hover:w-full"></span>
+                <span className="absolute  -bottom-1 left-0 w-0 h-[2px] bg-mywhite transition-all duration-500 group-hover:w-full"></span>
               </li>
             ))}
           </ul>
 
           {/* Icons */}
-          <ul className="hidden lg:flex items-center gap-5">
+          <ul className="hidden lg:flex items-center justify-center gap-5">
             <li>
-              <BiSearch className="text-xl cursor-pointer hover:text-thirdLight" />
+              <BiSearch
+                size={38}
+                className="cursor-pointer hover:text-thirdLight"
+              />
             </li>
             <li className="relative">
               <Link href="/cart" className="flex items-center">
-                <BsCart2 className="text-2xl" />
-                <span className="absolute -top-1 -right-1 bg-red-600 text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                <BsCart2
+                  size={35}
+                  className="cursor-pointer hover:text-thirdLight"
+                />
+                <span className="absolute -top-2 -right-2 bg-red-600 text-sm font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   1
                 </span>
               </Link>
             </li>
             <li className="relative">
               <Link href="/favorites" className="flex items-center">
-                <FaHeart className="text-2xl" />
-                <span className="absolute -top-1 -right-1 bg-red-600 text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">
+                <FaHeart
+                  size={32}
+                  className="cursor-pointer hover:text-thirdLight"
+                />
+                <span className="absolute -top-2 -right-3 bg-red-600 text-sm font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   1
                 </span>
               </Link>
             </li>
             <li>
-              <div className="relative">
+              <div className="relative border rounded-md py-1 px-2">
                 <div
-                  className="flex items-center space-x-2 cursor-pointer"
+                  className="flex items-center space-x-2 cursor-pointer hover:opacity-70"
                   onClick={() => setOpenDropdown(!openDropdown)}
                 >
-                  <FaUser />
-                  <p className=" capitalize">berk</p>
+                  <FaUser size={20} />
+                  <p className=" capitalize text-2xl">berk</p>
                 </div>
                 {openDropdown && (
-                  <div className="absolute right-0 mt-2 bg-mywhite text-myblack shadow-xl rounded p-2 flex flex-col">
+                  <div className="absolute right-0 mt-2 bg-mywhite text-myblack shadow-xl rounded px-2 py-1 text-xl  font-thin  flex flex-col border text-center">
                     {menuItems.map((item, i) => (
                       <Link
                         key={i}
@@ -142,7 +151,7 @@ function Navbar() {
                   onClick={() => setOpenDropdown(!openDropdown)}
                 >
                   <FaUser />
-                  <p className=" capitalize">berk</p>
+                  <p className=" capitalize tex">berk</p>
                 </div>
                 {openDropdown && (
                   <div className="absolute right-0 left-0 mt-2 bg-mywhite text-myblack shadow-xl rounded p-1 flex flex-col border-2 border-myblack">

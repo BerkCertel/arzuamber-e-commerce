@@ -16,7 +16,7 @@ function ProductSlider() {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -33,7 +33,7 @@ function ProductSlider() {
   );
 
   return (
-    <div className="homepage-slider-div mt-10 border-b mb-10">
+    <div className="homepage-slider-div p-10 md:p-0   border-b ">
       {loading ? (
         <Loading />
       ) : (

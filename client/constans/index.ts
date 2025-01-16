@@ -31,26 +31,6 @@ export const sssList: sssType[] = [
   },
 ];
 
-export interface CarouselType {
-  id: number;
-  image: string;
-}
-
-export const carouselList: CarouselType[] = [
-  { id: 1, image: "/images/slider/5.jpg" },
-  { id: 2, image: "/images/slider/6.jpg" },
-  { id: 3, image: "/images/slider/7.jpg" },
-];
-
-export interface ProductType {
-  id: number;
-  title: string;
-  price: number;
-  mrp: number;
-  description: string;
-  image: string;
-}
-
 export const products = [
   {
     id: 1,
