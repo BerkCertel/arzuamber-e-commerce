@@ -29,7 +29,13 @@ function Brand() {
           Discover the latest products that are perfect for every occasion!
         </p>
 
-        <Button primary small text="View Products" onClick={handleClick} />
+        <Button
+          primary
+          animation
+          small
+          text="View Products"
+          onClick={handleClick}
+        />
       </div>
     </div>
   );

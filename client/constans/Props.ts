@@ -1,3 +1,4 @@
+import { IconType } from "react-icons";
 export interface User {
   id: string;
   name: string;
@@ -29,10 +30,11 @@ export interface Product {
   inStock: boolean;
   discountPercent: number;
   image: string[];
-  stock: number;
   reviews: Review[];
+  isNewSeason: boolean;
 }
 
 export interface Category {
   name: string;
+  icon: IconType;
 }

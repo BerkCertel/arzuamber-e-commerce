@@ -109,12 +109,12 @@ function Navbar() {
                   <p className=" capitalize text-xl">berk</p>
                 </div>
                 {openDropdown && (
-                  <div className="absolute left-0 right-0 mt-3 p-1 bg-mywhite text-myblack shadow-xl rounded  text-xl  font-thin  flex flex-col border text-center">
+                  <div className="absolute left-0 right-0 mt-3 p-1 bg-mywhite text-myblack shadow-xl rounded  text-md  font-thin  flex flex-col border text-center">
                     {menuItems.map((item, i) => (
                       <Link
                         key={i}
                         href={item.url}
-                        className=" hover:bg-gray-200 rounded"
+                        className=" hover:bg-gray-200  rounded "
                       >
                         {item.name}
                       </Link>

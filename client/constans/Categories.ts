@@ -1,20 +1,30 @@
+import {
+  GiDress,
+  GiTankTop,
+  GiTShirt,
+  GiAmpleDress,
+  GiPoloShirt,
+} from "react-icons/gi";
+
 export const categoryList = [
   {
-    name: "Ayakkabı",
+    name: "Dress",
+    icon: GiDress,
   },
   {
-    name: "Çanta",
+    name: "T-Shirt",
+    icon: GiTShirt,
   },
   {
-    name: "Giyim",
+    name: "Long Dress",
+    icon: GiAmpleDress,
   },
   {
-    name: "Aksesuar",
+    name: "Polo Shirt",
+    icon: GiPoloShirt,
   },
   {
-    name: "Elektronik",
-  },
-  {
-    name: "Kozmetik",
+    name: "Tank Top",
+    icon: GiTankTop,
   },
 ];

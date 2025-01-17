@@ -5,42 +5,16 @@ import Heading from "../general/Heading";
 import Input from "../general/Input";
 import CheckBox from "../general/CheckBox";
 import ChoiceInput from "../general/ChoiceInput";
-import {
-  GiDress,
-  GiTankTop,
-  GiTShirt,
-  GiAmpleDress,
-  GiPoloShirt,
-} from "react-icons/gi";
 import Button from "../general/Button";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import FileBase from "react-file-base64";
+import FileInput from "../general/FileInput";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 import Image from "next/image";
 
 function CreateForm() {
-  const categoryList = [
-    {
-      name: "Dress",
-      icon: GiDress,
-    },
-    {
-      name: "T-Shirt",
-      icon: GiTShirt,
-    },
-    {
-      name: "Long Dress",
-      icon: GiAmpleDress,
-    },
-    {
-      name: "Polo Shirt",
-      icon: GiPoloShirt,
-    },
-    {
-      name: "Tank Top",
-      icon: GiTankTop,
-    },
-  ];
+  const { categories } = useSelector((state: RootState) => state.categories);
 
   const {
     register,
@@ -54,51 +28,62 @@ function CreateForm() {
       description: "",
       category: "",
       images: [],
-      stock: 1,
-      isActive: false,
+      inStock: false,
+      isNewSeason: false,
       discountPercent: 0,
-      price: 0,
+      price: null,
     },
   });
 
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>(["", "", "", ""]);
+
+  const handleImageChange = async (
+    index: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const base64 = await convertBase64(file);
+    const newImages = [...images];
+    newImages[index] = base64 as string;
+    setImages(newImages);
+
+    setValue("images", newImages, {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  };
+
+  const convertBase64 = (file: File) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => resolve(fileReader.result);
+      fileReader.onerror = (err) => reject(err);
+    });
+  };
 
   const onSubmit: SubmitErrorHandler<FieldValues> = (data) => {
+    if (images.filter(Boolean).length < 2) {
+      toast.error("Lütfen en az 2 resim yükleyin!");
+      return;
+    }
+
     try {
       const formData = { ...data, images };
       console.log("Form Data", formData);
 
-      toast.success("Product Created", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.success("Ürün Başarıyla Oluşturuldu!");
     } catch (error) {
       console.error(error);
-      toast.error("Product Not Created!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.error("Ürün Oluşturulamadı!");
     }
   };
 
   const category = watch("category");
 
-  const setCustomValue = (
-    id: string,
-    value: string | number | boolean | FileList
-  ) => {
+  const setCustomValue = (id: string, value: string | number | boolean) => {
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -114,67 +99,80 @@ function CreateForm() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Input
-          placeholder="Product Name"
+          placeholder="Ürün İsmi"
           id="name"
           type="text"
           errors={errors}
           register={register}
         />
         <Input
-          placeholder="Product Description"
+          placeholder="Ürün Açıklaması"
           id="description"
           type="text"
           errors={errors}
           register={register}
         />
         <Input
-          placeholder="Product Price"
+          placeholder="Ürün Fiyatı"
           id="price"
           type="number"
           errors={errors}
           register={register}
         />
-        <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">
-            Product Images
-          </label>
-          <FileBase
-            multiple={true}
-            onDone={(files: { base64: string }[]) =>
-              setImages(files.map((file) => file.base64))
-            }
+        <div className="flex justify-around items-center space-x-4">
+          <CheckBox label="Ürün aktif mi?" id="isActive" register={register} />
+          <CheckBox
+            label="Yeni sezon mu?"
+            id="isNewSeason"
+            register={register}
           />
-          <div className="mt-4 flex gap-4 flex-wrap">
-            {images.map((img, index) => (
-              <div key={index} className="w-20 h-20 relative">
-                <Image
-                  src={img}
-                  alt={`preview-${index}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-md border"
-                />
-              </div>
-            ))}
-          </div>
         </div>
-        <CheckBox
-          label="Is the product active?"
-          id="isActive"
-          register={register}
-        />
+        {/* File Upload Section */}
+        <div className="space-y-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index}>
+              <FileInput
+                id={`image-${index}`}
+                label={`Resim ${index + 1}`}
+                onChange={(e) => handleImageChange(index, e)}
+                errors={errors}
+              />
+              {images[index] && (
+                <div className="mt-2 flex justify-center">
+                  <Image
+                    src={images[index]}
+                    alt={`Preview ${index + 1}`}
+                    width={128}
+                    height={128}
+                    className="object-cover rounded-md"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Category Section */}
         <div className="w-full flex flex-wrap gap-4 justify-center">
-          {categoryList.map((cat) => (
+          {categories.map((cat) => (
             <ChoiceInput
               key={cat.name}
               text={cat.name}
               icon={cat.icon}
               selected={category === cat.name}
-              onClick={(category) => setCustomValue("category", category)}
+              onClick={() => setCustomValue("category", cat.name)}
             />
           ))}
         </div>
-        <Button text="Create Product" onClick={handleSubmit(onSubmit)} />
+
+        {/* Submit Button */}
+        <div className="flex justify-center">
+          <Button
+            animation
+            text="Ürünü Oluştur"
+            onClick={handleSubmit(onSubmit)}
+          />
+        </div>
       </form>
     </div>
   );

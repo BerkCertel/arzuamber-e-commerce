@@ -4,6 +4,8 @@ import AdminSideBarItem from "./AdminSideBarItem";
 import { MdSpaceDashboard, MdEventNote } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { IoCreateOutline } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+
 import { usePathname } from "next/navigation";
 
 function AdminSideBar() {
@@ -24,6 +26,11 @@ function AdminSideBar() {
       name: "Update Product",
       icon: RxUpdate,
       url: "/admin/update",
+    },
+    {
+      name: "Update Delete",
+      icon: TiDeleteOutline,
+      url: "/admin/delete",
     },
     {
       name: "Orders",

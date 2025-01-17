@@ -7,9 +7,9 @@ export const products: Product[] = [
     description: "short desc",
     price: 2999,
     discountPercent: 45,
-    stock: 6,
     category: "Dress",
     inStock: true,
+    isNewSeason: false,
     image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
@@ -22,10 +22,10 @@ export const products: Product[] = [
     name: "Nike Shoes",
     description: "short desc",
     price: 2999,
-    stock: 7,
     category: "Shoes",
     discountPercent: 17,
     inStock: false,
+    isNewSeason: true,
     image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
@@ -82,8 +82,8 @@ export const products: Product[] = [
     price: 1499,
     discountPercent: 25,
     category: "Accessories",
-    stock: 10,
     inStock: true,
+    isNewSeason: true,
     image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
@@ -97,8 +97,8 @@ export const products: Product[] = [
     description: "short desc",
     price: 1499,
     discountPercent: 20,
-    stock: 5,
     category: "Accessories",
+    isNewSeason: false,
     inStock: true,
     image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761476/1_ubja42.webp",
