@@ -8,6 +8,7 @@ interface ButtonProps {
   outline?: boolean;
   icon?: IconType | undefined;
   disabled?: boolean;
+  primary?: boolean;
 }
 
 function Button({
@@ -17,12 +18,16 @@ function Button({
   outline,
   disabled,
   icon: Icon,
+  primary,
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-lg p-3  ${
+      className={`rounded-lg p-3 hover:opacity-85  ${
         outline ? "border text-black" : "bg-black text-white"
-      } ${small ? "w-[250px] " : "w-full"}`}
+      } ${small ? "w-[250px] " : "w-full"}
+       
+      ${primary ? "bg-primaryLight text-mywhite " : ""}
+      `}
       disabled={disabled}
       onClick={onClick}
     >

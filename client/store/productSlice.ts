@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 //  PayloadAction
-import { Product } from "@/constans/productProps";
+import { Product } from "@/constans/Props";
 import { products } from "@/constans/Product";
 
 // Sepet Tipi

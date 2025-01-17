@@ -60,7 +60,7 @@ function Navbar() {
               <li key={link.url} className="relative group">
                 <Link
                   href={link.url}
-                  className="text-mywhite text-xl  hover:text-thirdLight transition-all duration-300"
+                  className="text-mywhite text-md  hover:text-thirdLight transition-all duration-300"
                 >
                   {link.name}
                 </Link>
@@ -73,14 +73,14 @@ function Navbar() {
           <ul className="hidden lg:flex items-center justify-center gap-5">
             <li>
               <BiSearch
-                size={38}
+                size={30}
                 className="cursor-pointer hover:text-thirdLight"
               />
             </li>
             <li className="relative">
               <Link href="/cart" className="flex items-center">
                 <BsCart2
-                  size={35}
+                  size={30}
                   className="cursor-pointer hover:text-thirdLight"
                 />
                 <span className="absolute -top-2 -right-2 bg-red-600 text-sm font-bold rounded-full h-5 w-5 flex items-center justify-center">
@@ -91,7 +91,7 @@ function Navbar() {
             <li className="relative">
               <Link href="/favorites" className="flex items-center">
                 <FaHeart
-                  size={32}
+                  size={28}
                   className="cursor-pointer hover:text-thirdLight"
                 />
                 <span className="absolute -top-2 -right-3 bg-red-600 text-sm font-bold rounded-full h-5 w-5 flex items-center justify-center">
@@ -106,15 +106,15 @@ function Navbar() {
                   onClick={() => setOpenDropdown(!openDropdown)}
                 >
                   <FaUser size={20} />
-                  <p className=" capitalize text-2xl">berk</p>
+                  <p className=" capitalize text-xl">berk</p>
                 </div>
                 {openDropdown && (
-                  <div className="absolute right-0 mt-2 bg-mywhite text-myblack shadow-xl rounded px-2 py-1 text-xl  font-thin  flex flex-col border text-center">
+                  <div className="absolute left-0 right-0 mt-3 p-1 bg-mywhite text-myblack shadow-xl rounded  text-xl  font-thin  flex flex-col border text-center">
                     {menuItems.map((item, i) => (
                       <Link
                         key={i}
                         href={item.url}
-                        className="px-2 py-1 hover:bg-gray-200 rounded"
+                        className=" hover:bg-gray-200 rounded"
                       >
                         {item.name}
                       </Link>

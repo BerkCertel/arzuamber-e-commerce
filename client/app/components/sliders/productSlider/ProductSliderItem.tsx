@@ -4,8 +4,8 @@ import { useState } from "react";
 import { FaHeart, FaStar } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
-import { HiArrowSmDown } from "react-icons/hi";
-import { Product } from "@/constans/productProps";
+import { HiArrowSmDown, HiCheckCircle, HiXCircle } from "react-icons/hi";
+import { Product } from "@/constans/Props";
 import Image from "next/image";
 import TextClip from "../../utils/TextClip";
 
@@ -18,7 +18,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
 
   return (
     <div
-      className="flex justify-center items-center flex-col shadow rounded border hover:shadow-2xl transition duration-500 h-[400px] p-5 sm:w-full md:w-[250px] lg:w-[300px] xl:w-[350px]"
+      className="flex justify-center items-center flex-col space-y-1  shadow rounded border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[250px] lg:w-[300px] xl:w-[350px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -29,28 +29,18 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           }`}
         >
           <button className="text-white bg-black p-1 rounded hover:opacity-65">
-            <IoCart className="text-sm" />
+            <IoCart size={20} />
           </button>
           <button className="text-white bg-black p-1 rounded hover:opacity-65">
-            <FaHeart className="text-sm" />
+            <FaHeart size={18} />
           </button>
           <button
             onClick={() => {}}
             className="text-white bg-black p-1 rounded hover:opacity-65"
           >
-            <IoMdEye className="text-sm" />
+            <IoMdEye size={20} />
           </button>
         </div>
-
-        <small className="absolute z-30 top-12 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-thirdDark w-14 h-7 ">
-          <FaStar className="size-3 mr-1" />
-          {product?.reviews?.length > 0 ? product.reviews[0].rating : "0"}
-        </small>
-
-        <small className="absolute z-30 top-4 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-red-600 w-14 h-7 ">
-          <HiArrowSmDown className="text-xl" />%
-          {Math.round(product.discountPercent)}
-        </small>
 
         <Image
           className={`absolute object-cover w-[200px] h-[300px] rounded transition-opacity duration-700 border ${
@@ -74,7 +64,28 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           quality={100}
         />
       </div>
+      <div className="flex justify-center items-center gap-2">
+        <small className=" z-30 top-4 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-red-600 w-14 h-7 ">
+          <HiArrowSmDown className="text-xl" />%
+          {Math.round(product.discountPercent)}
+        </small>
+        <small className=" z-30 top-12 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-thirdDark w-14 h-7 ">
+          <FaStar className="size-3 mr-1" />
+          {product?.reviews?.length > 0 ? product.reviews[0].rating : "0"}
+        </small>
 
+        {product.inStock ? (
+          <small className=" z-30 top-20 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-green-600 w-14 h-7  space-x-1">
+            <p>Stock</p>
+            <HiCheckCircle className="text-xl" />
+          </small>
+        ) : (
+          <small className=" z-30 top-20 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-red-600 w-14 h-7 space-x-1">
+            <p>Stock</p>
+            <HiXCircle className="text-xl" />
+          </small>
+        )}
+      </div>
       <h2 className="font-bold text-lg mt-2">{TextClip(product?.name)}</h2>
       <hr className="w-3/4" />
       <p className="text-slate-500 text-xs">

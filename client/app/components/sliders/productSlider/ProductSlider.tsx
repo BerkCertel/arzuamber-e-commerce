@@ -5,7 +5,7 @@ import Loading from "../../utils/Loading";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import ProductsSliderItem from "./ProductSliderItem";
-import { Product } from "@/constans/productProps";
+import { Product } from "@/constans/Props";
 import Heading from "../../general/Heading";
 
 function ProductSlider() {
@@ -16,7 +16,7 @@ function ProductSlider() {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },

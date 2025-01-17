@@ -32,3 +32,7 @@ export interface Product {
   stock: number;
   reviews: Review[];
 }
+
+export interface Category {
+  name: string;
+}

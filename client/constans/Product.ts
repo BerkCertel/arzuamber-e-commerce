@@ -1,4 +1,4 @@
-import { Product } from "./productProps";
+import { Product } from "./Props";
 
 export const products: Product[] = [
   {
@@ -25,7 +25,7 @@ export const products: Product[] = [
     stock: 7,
     category: "Shoes",
     discountPercent: 17,
-    inStock: true,
+    inStock: false,
     image: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/cld-sample-5.jpg",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",

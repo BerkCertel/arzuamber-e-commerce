@@ -10,13 +10,13 @@ interface ImageProps {
 
 function HomeSliderItem({ image }: ImageProps) {
   return (
-    <div className="relative w-full h-64 md:h-[600px]">
+    <div className="relative w-full h-72 md:h-[600px]">
       <Image
         src={image.url}
         alt={image.description ? image.description : "Slider Description"}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-lg shadow-lg"
+        fill
+        priority
+        className="rounded-lg shadow-lg object-cover"
       />
     </div>
   );

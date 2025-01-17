@@ -30,7 +30,7 @@ function HomeSlider() {
   const { images, loading } = useSelector((state: RootState) => state.general);
 
   return (
-    <div className="homepage-slider-div  border-b mb-10">
+    <div className="homepage-slider-div border-b mb-10">
       {loading ? (
         <Loading />
       ) : (
@@ -43,7 +43,7 @@ function HomeSlider() {
           ssr={true}
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={3000} // Adjust autoplay speed for a better experience
+          autoPlaySpeed={3000}
           keyBoardControl={true}
           customTransition="all .7s"
           transitionDuration={1000}
