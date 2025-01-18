@@ -5,7 +5,7 @@ import { FaHeart, FaStar } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { HiArrowSmDown, HiCheckCircle, HiXCircle } from "react-icons/hi";
-import { Product } from "@/constans/Props";
+import { Product, Review } from "@/constans/Props";
 import Image from "next/image";
 import TextClip from "../../utils/TextClip";
 
@@ -16,9 +16,19 @@ interface ProductsSliderItemProps {
 function ProductsSliderItem({ product }: ProductsSliderItemProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  const productRating =
+    product?.reviews && product.reviews.length > 0
+      ? product.reviews.reduce(
+          (acc: number, item: Review) => acc + (item.rating || 0),
+          0
+        ) / product.reviews.length
+      : 0;
+
+  const ratingResult = isNaN(productRating) ? 0 : productRating;
+
   return (
     <div
-      className="flex justify-center items-center flex-col space-y-1  shadow rounded border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[250px] lg:w-[300px] xl:w-[350px]"
+      className="flex justify-center items-center flex-col space-y-1  shadow rounded border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px] lg:w-[300px] xl:w-[350px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -28,18 +38,20 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
             isHovered ? "visible" : "invisible"
           }`}
         >
-          <button className="text-white bg-black p-1 rounded hover:opacity-65">
-            <IoCart size={20} />
-          </button>
-          <button className="text-white bg-black p-1 rounded hover:opacity-65">
-            <FaHeart size={18} />
-          </button>
-          <button
-            onClick={() => {}}
-            className="text-white bg-black p-1 rounded hover:opacity-65"
-          >
-            <IoMdEye size={20} />
-          </button>
+          <div className="flex flex-col gap-2">
+            <button className="flex items-center justify-center w-8 h-8 bg-primary text-mywhite rounded-lg hover:bg-primaryLight hover:scale-110 transition-all shadow-md">
+              <IoCart size={18} />
+            </button>
+            <button className="flex items-center justify-center w-8 h-8 bg-secondary text-mywhite rounded-lg hover:bg-secondaryLight hover:text-primary hover:scale-110 transition-all shadow-md">
+              <FaHeart size={16} />
+            </button>
+            <button
+              onClick={() => {}}
+              className="flex items-center justify-center w-8 h-8 bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md"
+            >
+              <IoMdEye size={18} />
+            </button>
+          </div>
         </div>
 
         <Image
@@ -71,7 +83,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
         </small>
         <small className=" z-30 top-12 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-thirdDark w-14 h-7 ">
           <FaStar className="size-3 mr-1" />
-          {product?.reviews?.length > 0 ? product.reviews[0].rating : "0"}
+          {product?.reviews?.length > 0 ? ratingResult : "0"}
         </small>
 
         {product.inStock ? (

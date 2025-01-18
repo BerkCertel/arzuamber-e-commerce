@@ -66,7 +66,7 @@ function CreateForm() {
 
   const onSubmit: SubmitErrorHandler<FieldValues> = (data) => {
     if (images.filter(Boolean).length < 2) {
-      toast.error("Lütfen en az 2 resim yükleyin!");
+      toast.error("Please upload at least 2 images!!");
       return;
     }
 
@@ -74,10 +74,10 @@ function CreateForm() {
       const formData = { ...data, images };
       console.log("Form Data", formData);
 
-      toast.success("Ürün Başarıyla Oluşturuldu!");
+      toast.success("Product Created Successfully!");
     } catch (error) {
       console.error(error);
-      toast.error("Ürün Oluşturulamadı!");
+      toast.error("Product Could Not Be Created!");
     }
   };
 
@@ -120,12 +120,12 @@ function CreateForm() {
           register={register}
         />
         <div className="flex justify-around items-center space-x-4">
-          <CheckBox label="Ürün aktif mi?" id="isActive" register={register} />
           <CheckBox
-            label="Yeni sezon mu?"
-            id="isNewSeason"
+            label="Is the product active?"
+            id="isActive"
             register={register}
           />
+          <CheckBox label="New season?" id="isNewSeason" register={register} />
         </div>
         {/* File Upload Section */}
         <div className="space-y-4">
@@ -133,7 +133,7 @@ function CreateForm() {
             <div key={index}>
               <FileInput
                 id={`image-${index}`}
-                label={`Resim ${index + 1}`}
+                label={`image ${index + 1}`}
                 onChange={(e) => handleImageChange(index, e)}
                 errors={errors}
               />

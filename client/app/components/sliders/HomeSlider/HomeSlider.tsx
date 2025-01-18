@@ -30,7 +30,7 @@ function HomeSlider() {
   const { images, loading } = useSelector((state: RootState) => state.general);
 
   return (
-    <div className="homepage-slider-div border-b mb-10">
+    <div className="homepage-slider-div  mb-10">
       {loading ? (
         <Loading />
       ) : (

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Avatar from "../general/Avatar";
-import { Review } from "@/constans/Props";
+import { Review } from "./DetailClient";
 
 function Comment({ prd }: { prd: Review }) {
   return (

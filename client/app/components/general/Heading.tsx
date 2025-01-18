@@ -7,9 +7,9 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({ center, text }) => {
   return (
-    <div>
+    <div className="mb-3 md:mb-10">
       <div
-        className={`my-3 md:my-10 text-2xl text-black px-3 md:px-10 md:text-5xl   ${
+        className={` text-2xl mb-5 text-black px-3 md:px-10 md:text-5xl   ${
           center ? "text-center" : "text-start"
         }`}
       >

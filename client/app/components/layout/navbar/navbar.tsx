@@ -20,6 +20,7 @@ function Navbar() {
     { name: "Home", url: "/" },
     { name: "Products", url: "/products" },
     { name: "Blogs", url: "/blogs" },
+    { name: "About", url: "/about" },
     { name: "Contact", url: "/contact" },
   ];
 

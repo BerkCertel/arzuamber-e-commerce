@@ -5,9 +5,9 @@ interface WarningTextProps {
 
 function WarningText({ title, text }: WarningTextProps) {
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center bg-red-100 p-4 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-red-700 mb-4">{title}</h1>
-      <p className="text-2xl text-red-600">{text}</p>
+    <div className="w-full h-screen flex flex-col justify-center items-center bg-primaryLight p-8 rounded-lg shadow-xl ">
+      <h1 className="text-4xl font-extrabold text-mywhite mb-6  ">{title}</h1>
+      <p className="text-xl text-mywhite  ">{text}</p>
     </div>
   );
 }
