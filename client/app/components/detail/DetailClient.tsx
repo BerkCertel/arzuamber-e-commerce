@@ -10,8 +10,13 @@ import Heading from "../general/Heading";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, CartItem } from "@/store/cartSlice";
 import { RootState } from "../../../store/store";
+import { CardProductProps, Product, Review } from "@/constans/Props";
 
-const DetailClient = ({ product }: ProductCartProps) => {
+interface productProps {
+  product: Product;
+}
+
+const DetailClient = ({ product }: productProps) => {
   const dispatch = useDispatch();
   const carts = useSelector((state: RootState) => state.cart.carts);
 
@@ -21,8 +26,7 @@ const DetailClient = ({ product }: ProductCartProps) => {
     description: product.description,
     price: product.price,
     quantity: 1,
-    image: product.image,
-    stock: product.stock,
+    images: product.images,
     inStock: product.inStock,
   });
 
@@ -40,11 +44,10 @@ const DetailClient = ({ product }: ProductCartProps) => {
     const data = {
       id: product?.id,
       name: product?.name,
-      image: product?.image,
+      image: product?.images,
       price: product?.price,
       quantity: cardProduct?.quantity,
       description: product?.description || "No description",
-      stock: product?.stock,
       inStock: product?.inStock || false,
     };
     dispatch(addToCart(data));
@@ -68,7 +71,7 @@ const DetailClient = ({ product }: ProductCartProps) => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-8 p-8">
         {/* Image Section */}
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-xl">
-          <Image src={product.image} alt={product.name} fill priority />
+          <Image src={product.images} alt={product.name} fill priority />
         </div>
 
         {/* Product Details Section */}

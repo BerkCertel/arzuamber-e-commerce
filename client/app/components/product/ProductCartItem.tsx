@@ -8,8 +8,8 @@ import { HiArrowSmDown, HiCheckCircle, HiXCircle } from "react-icons/hi";
 import Image from "next/image";
 import { Product, Review } from "@/constans/Props";
 import { Rating } from "@mui/material";
-import { useRouter } from "next/navigation";
 import TextClip from "../utils/TextClip";
+import Link from "next/link";
 
 interface ProductsSliderItemProps {
   product: Product;
@@ -17,7 +17,6 @@ interface ProductsSliderItemProps {
 
 function ProductCartItem({ product }: ProductsSliderItemProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const router = useRouter();
 
   const productRating =
     product?.reviews && product.reviews.length > 0
@@ -29,20 +28,16 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
 
   const ratingResult = isNaN(productRating) ? 0 : productRating;
 
-  const handleRoute = () => {
-    router.push(`product/${product.id}`);
-  };
-
   return (
     <div
-      className="group flex flex-col justify-between shadow-md border border-thirdDark rounded-lg bg-white hover:shadow-lg transition duration-300 overflow-hidden relative"
+      className="group flex flex-col justify-between shadow-md border border-thirdDark rounded-lg bg-white hover:shadow-2xl transition duration-300 overflow-hidden relative h-[500px] "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Görsel Alanı */}
-      <div className="relative w-full h-60 ">
+      <div className="relative w-full h-full ">
         <Image
-          src={isHovered ? product?.image[1] : product?.image[0]}
+          src={isHovered ? product?.images[1] : product?.images[0]}
           alt={product.name}
           fill
           className="object-contain p-3  transition-transform duration-300"
@@ -54,36 +49,38 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
           <button className="w-8 h-8 grid items-center justify-center bg-secondary text-mywhite rounded-lg hover:bg-secondaryLight hover:text-primary hover:scale-110 transition-all shadow-md">
             <FaHeart className="w-4 h-4" />
           </button>
-          <button
-            onClick={handleRoute}
+          <Link
+            href={`/product/${product.id}`}
             className="w-8 h-8 grid items-center justify-center bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md"
           >
             <IoMdEye className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
-
       {/* Ürün Detayları */}
-      <div className="p-4 flex flex-col gap-2">
-        <Rating
-          name="read-only"
-          value={ratingResult}
-          precision={0.5}
-          readOnly
-        />
-        <small className="flex items-center bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold w-2/6">
-          <HiArrowSmDown className="text-lg" />%
-          {Math.round(product.discountPercent)}
-        </small>
+      <div className="p-4 flex flex-col space-y-1  gap-2">
+        <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-2">
+          <Rating
+            name="read-only"
+            value={ratingResult}
+            precision={0.5}
+            readOnly
+          />
+          <small className="flex items-center bg-red-600 text-white text-xs px-2 py-1 rounded-full font-bold  ">
+            <HiArrowSmDown className="text-lg" />%
+            {Math.round(product.discountPercent)}
+          </small>
+        </div>
 
-        <h2 className="font-bold text-xl text-gray-800 line-clamp-2">
+        <h2 className="font-bold text-2xl text-gray-800 ">
           {TextClip(product.name)}
         </h2>
+        <hr />
         <div>
-          <p className="text-gray-500 text-sm line-through">
+          <p className="text-gray-500 text-md line-through">
             Original: {product.price}₺
           </p>
-          <p className="text-green-600 font-semibold text-sm">
+          <p className="text-green-600 font-bold text-lg">
             Discounted:{" "}
             {(
               product.price -
@@ -92,14 +89,14 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
             ₺
           </p>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           {product.inStock ? (
-            <small className="flex items-center bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+            <small className="flex items-center justify-center bg-green-500 text-white text-xs px-2 py-1 rounded-full w-full">
               <HiCheckCircle className="mr-1" />
               In Stock
             </small>
           ) : (
-            <small className="flex items-center bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+            <small className="flex items-center justify-center bg-red-500 text-white text-xs px-2 py-1 rounded-full w-full ">
               <HiXCircle className="mr-1" />
               Out of Stock
             </small>

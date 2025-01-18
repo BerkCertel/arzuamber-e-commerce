@@ -8,6 +8,7 @@ import { HiArrowSmDown, HiCheckCircle, HiXCircle } from "react-icons/hi";
 import { Product, Review } from "@/constans/Props";
 import Image from "next/image";
 import TextClip from "../../utils/TextClip";
+import Link from "next/link";
 
 interface ProductsSliderItemProps {
   product: Product;
@@ -45,12 +46,12 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
             <button className="flex items-center justify-center w-8 h-8 bg-secondary text-mywhite rounded-lg hover:bg-secondaryLight hover:text-primary hover:scale-110 transition-all shadow-md">
               <FaHeart size={16} />
             </button>
-            <button
-              onClick={() => {}}
-              className="flex items-center justify-center w-8 h-8 bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md"
+            <Link
+              href={`/product/${product.id}`}
+              className="flex items-center justify-center w-8 h-8 bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md z-50"
             >
               <IoMdEye size={18} />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -58,7 +59,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           className={`absolute object-cover w-[200px] h-[300px] rounded transition-opacity duration-700 border ${
             isHovered ? "opacity-0" : "opacity-100 z-20"
           }`}
-          src={product?.image[0]}
+          src={product?.images[0]}
           alt={product.name}
           width={250}
           height={300}
@@ -69,7 +70,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           className={`w-[200px] h-[300px] object-cover rounded transition-opacity duration-700 border ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
-          src={product?.image[1]}
+          src={product?.images[1]}
           alt={product.name}
           width={250}
           height={300}

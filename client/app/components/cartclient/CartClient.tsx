@@ -7,7 +7,9 @@ import Button from "../general/Button"; // Buton bileşenini kullanıyoruz
 import { removeFromCart } from "@/store/cartSlice"; // Sepetten ürün çıkarma işlemi
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import TextClip from "@/utils/TextClip";
+
+import Loading from "../utils/Loading";
+import TextClip from "../utils/TextClip";
 
 function CartClient() {
   const dispatch = useDispatch();
@@ -21,11 +23,7 @@ function CartClient() {
   }, []);
 
   if (!isClient) {
-    return (
-      <div className="flex justify-center items-center h-screen text-xl font-semibold text-gray-700">
-        Loading...
-      </div>
-    );
+    return <Loading />;
   }
 
   const removeItemFromCart = (id: string) => {

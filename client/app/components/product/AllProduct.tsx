@@ -33,13 +33,13 @@ function AllProduct() {
   const pageCount = Math.ceil(products.length / productsPerPage);
 
   return (
-    <main className="p-6 sm:p-8 bg-fourthLight rounded-lg">
+    <main className="p-6 sm:p-8 bg-gray-100 rounded-lg">
       <Heading text="All Products" center />
       {loading ? (
         <Loading />
       ) : (
         <div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 items-center p-10 md:p-10">
             {currentProducts.map((product, i) => (
               <ProductCartItem product={product} key={i} />
             ))}

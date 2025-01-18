@@ -10,7 +10,7 @@ export const products: Product[] = [
     category: "Dress",
     inStock: true,
     isNewSeason: false,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761614/product1-image2_ve8iaf.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761620/product1-image3_bq7a8t.webp",
@@ -67,7 +67,7 @@ export const products: Product[] = [
     discountPercent: 17,
     inStock: false,
     isNewSeason: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120321/3_pthuab.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120319/2_r5pymv.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120323/4_tbzib8.webp",
@@ -124,7 +124,7 @@ export const products: Product[] = [
     category: "Accessories",
     inStock: true,
     isNewSeason: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120061/1_ee3a8q.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120069/2_gfa1mp.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120070/3_dmvmig.webp",
@@ -162,7 +162,7 @@ export const products: Product[] = [
     category: "Accessories",
     isNewSeason: false,
     inStock: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120062/3_waxupk.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120058/2_wdjc46.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120064/4_ebak3h.webp",
@@ -200,7 +200,7 @@ export const products: Product[] = [
     category: "Clothing",
     inStock: true,
     isNewSeason: false,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120056/4_nmxqdq.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120052/2_locb8a.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120050/3_mxx9cv.webp",
@@ -238,7 +238,7 @@ export const products: Product[] = [
     category: "Accessories",
     inStock: true,
     isNewSeason: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120003/1_v1o8ca.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120008/2_merers.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120011/4_lyvl2z.webp",
@@ -296,7 +296,7 @@ export const products: Product[] = [
     category: "Electronics",
     inStock: true,
     isNewSeason: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120016/1_solyoa.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120018/2_f1v81w.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120020/3_oovdcf.webp",
@@ -334,7 +334,7 @@ export const products: Product[] = [
     category: "Electronics",
     inStock: true,
     isNewSeason: true,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120031/4_b00jre.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120028/2_xqzqdk.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120030/3_kfrms0.webp",
@@ -372,7 +372,7 @@ export const products: Product[] = [
     category: "Accessories",
     inStock: true,
     isNewSeason: false,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120041/1_gy98oi.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120045/2_ot0kby.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120047/4_vec5mm.webp",
@@ -410,7 +410,7 @@ export const products: Product[] = [
     category: "Home Appliances",
     inStock: false,
     isNewSeason: false,
-    image: [
+    images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120039/4_y9evja.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120038/2_nmoghp.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120034/1_un61c0.webp",

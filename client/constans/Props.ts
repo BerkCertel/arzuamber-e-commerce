@@ -29,7 +29,7 @@ export interface Product {
   category: string;
   inStock: boolean;
   discountPercent: number;
-  image: string[];
+  images: string[];
   reviews: Review[];
   isNewSeason: boolean;
 }
@@ -38,3 +38,14 @@ export interface Category {
   name: string;
   icon: IconType;
 }
+
+export type CardProductProps = {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  image: string;
+  stock: number;
+  inStock: boolean;
+};
