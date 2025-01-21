@@ -30,7 +30,7 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
 
   return (
     <div
-      className="group flex flex-col justify-between shadow-md border border-thirdDark rounded-lg bg-white hover:shadow-2xl transition duration-300 overflow-hidden relative h-[500px] "
+      className="group flex flex-col justify-between shadow-md border  rounded-lg bg-white hover:shadow-xl transition duration-300 overflow-hidden relative h-[500px] "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

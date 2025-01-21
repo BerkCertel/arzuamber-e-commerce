@@ -4,12 +4,14 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Woman Clotcsh",
-    description: "short desc",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 2999,
     discountPercent: 45,
     category: "Dress",
-    inStock: true,
+    inStock: false,
     isNewSeason: false,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761609/product1-image1_repfzr.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1730761614/product1-image2_ve8iaf.webp",
@@ -21,7 +23,8 @@ export const products: Product[] = [
         id: "64ae4e5f2c99a9e6b3e1f1c9",
         userId: "64ae4e5f2c99a9e6b3e1f1d0",
         productId: "1",
-        comment: "Great dress, very comfortable and stylish!",
+        comment:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
         rating: 5,
         createDate: "2023-07-06T06:08.330672",
         user: {
@@ -61,12 +64,14 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Nike Shoes",
-    description: "short desc",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 2999,
-    category: "Shoes",
+    category: "Shoes ",
     discountPercent: 17,
     inStock: false,
     isNewSeason: true,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120321/3_pthuab.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120319/2_r5pymv.webp",
@@ -118,12 +123,14 @@ export const products: Product[] = [
   {
     id: "3",
     name: "Red Dress",
-    description: "short desc",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 1499,
     discountPercent: 25,
     category: "Accessories",
     inStock: true,
     isNewSeason: true,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120061/1_ee3a8q.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120069/2_gfa1mp.webp",
@@ -151,17 +158,40 @@ export const products: Product[] = [
           role: "USER",
         },
       },
+      {
+        id: "64ae4e5f4c99a9e6b3e1f1c9",
+        userId: "64ae4e5f2c99229e6b3e1f1d0",
+        productId: "3",
+        comment:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
+        rating: 5,
+        createDate: "2023-07-06T06:08.330672",
+        user: {
+          id: "1555255",
+          name: "Zeynep",
+          email: "zeynep@example.com",
+          emailVerified: null,
+          image:
+            "https://res.cloudinary.com/dgoothqal/image/upload/v1730673241/avatars/sm36sxm2i2ukv4zk6yo6.jpg",
+          hashedPassword: null,
+          createdAt: "2025-11-06T06:08.33067",
+          updatedAt: "2025-12-06T07:08.330672",
+          role: "USER",
+        },
+      },
     ],
   },
   {
     id: "4",
     name: "Resdfsdfdsffffffffffffffffffffffffffffffffffffffffffff",
-    description: "short desc",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 1499,
     discountPercent: 20,
     category: "Accessories",
     isNewSeason: false,
     inStock: true,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120062/3_waxupk.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120058/2_wdjc46.webp",
@@ -173,7 +203,8 @@ export const products: Product[] = [
         id: "64ae4e5f2c99a9e6b3e1f1c9",
         userId: "64ae4e5f2c99a9e6b3e1f1d0",
         productId: "4",
-        comment: "A great accessory, really complements my outfit.",
+        comment:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi..",
         rating: 4,
         createDate: "2023-07-06T06:08.330672",
         user: {
@@ -194,12 +225,14 @@ export const products: Product[] = [
   {
     id: "5",
     name: "Blue T-Shirt",
-    description: "Comfortable and casual t-shirt",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 799,
     discountPercent: 10,
     category: "Clothing",
     inStock: true,
     isNewSeason: false,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120056/4_nmxqdq.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120052/2_locb8a.webp",
@@ -232,12 +265,14 @@ export const products: Product[] = [
   {
     id: "6",
     name: "Luxury Watch",
-    description: "Elegant luxury wristwatch",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 10999,
     discountPercent: 5,
     category: "Accessories",
     inStock: true,
     isNewSeason: true,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120003/1_v1o8ca.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120008/2_merers.webp",
@@ -290,12 +325,15 @@ export const products: Product[] = [
   {
     id: "7",
     name: "Gaming Laptop",
-    description: "High-performance gaming laptop",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 25999,
     discountPercent: 15,
     category: "Electronics",
     inStock: true,
     isNewSeason: true,
+    sizes: ["36", "38", "40", "42"],
+
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120016/1_solyoa.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120018/2_f1v81w.webp",
@@ -328,12 +366,14 @@ export const products: Product[] = [
   {
     id: "8",
     name: "Smartphone",
-    description: "Latest smartphone model",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 19999,
     discountPercent: 12,
     category: "Electronics",
     inStock: true,
     isNewSeason: true,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120031/4_b00jre.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120028/2_xqzqdk.webp",
@@ -366,12 +406,14 @@ export const products: Product[] = [
   {
     id: "9",
     name: "Wireless Earbuds",
-    description: "Noise-cancelling wireless earbuds",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 899,
     discountPercent: 20,
     category: "Accessories",
     inStock: true,
     isNewSeason: false,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120041/1_gy98oi.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120045/2_ot0kby.webp",
@@ -404,12 +446,14 @@ export const products: Product[] = [
   {
     id: "10",
     name: "Kitchen Mixer",
-    description: "Multi-functional kitchen mixer",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 2499,
     discountPercent: 18,
     category: "Home Appliances",
     inStock: false,
     isNewSeason: false,
+    sizes: ["36", "38", "40", "42"],
     images: [
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120039/4_y9evja.webp",
       "https://res.cloudinary.com/dgoothqal/image/upload/v1737120038/2_nmoghp.webp",

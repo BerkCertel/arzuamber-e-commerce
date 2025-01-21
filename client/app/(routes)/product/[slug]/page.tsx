@@ -1,6 +1,6 @@
 "use client";
 
-import DetailClient from "@/app/components/detail/DetailClient";
+import DetailClient from "@/app/components/productDetail/DetailClient";
 import Loading from "@/app/components/utils/Loading";
 import WarningText from "@/app/components/utils/WarningText";
 import { Product } from "@/constans/Props";

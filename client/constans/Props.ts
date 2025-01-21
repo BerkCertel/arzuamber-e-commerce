@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+// import { IconType } from "react-icons";
 export interface User {
   id: string;
   name: string;
@@ -32,11 +32,11 @@ export interface Product {
   images: string[];
   reviews: Review[];
   isNewSeason: boolean;
+  sizes: string[];
 }
 
 export interface Category {
   name: string;
-  icon: IconType;
 }
 
 export type CardProductProps = {
@@ -46,6 +46,5 @@ export type CardProductProps = {
   price: number;
   quantity: number;
   image: string;
-  stock: number;
   inStock: boolean;
 };

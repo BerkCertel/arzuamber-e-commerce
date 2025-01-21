@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { FaHeart, FaStar } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
-import { HiArrowSmDown, HiCheckCircle, HiXCircle } from "react-icons/hi";
+import { HiCheckCircle, HiXCircle } from "react-icons/hi";
 import { Product, Review } from "@/constans/Props";
 import Image from "next/image";
 import TextClip from "../../utils/TextClip";
 import Link from "next/link";
+import { Rating } from "@mui/material";
 
 interface ProductsSliderItemProps {
   product: Product;
@@ -36,19 +37,19 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
       <div className="relative p-2 rounded-xl">
         <div
           className={`flex flex-col items-start justify-start top-6 left-5 space-y-3 z-50 absolute inset-0 ${
-            isHovered ? "visible" : "invisible"
+            isHovered ? "visible" : " visible md:invisible"
           }`}
         >
-          <div className="flex flex-col gap-2">
-            <button className="flex items-center justify-center w-8 h-8 bg-primary text-mywhite rounded-lg hover:bg-primaryLight hover:scale-110 transition-all shadow-md">
+          <div className="flex flex-col gap-2 w-full transition-all ">
+            <button className="flex items-center justify-center w-8 h-8 bg-primary text-mywhite rounded-lg hover:bg-primaryLight hover:scale-110  shadow-md">
               <IoCart size={18} />
             </button>
-            <button className="flex items-center justify-center w-8 h-8 bg-secondary text-mywhite rounded-lg hover:bg-secondaryLight hover:text-primary hover:scale-110 transition-all shadow-md">
+            <button className="flex items-center justify-center w-8 h-8 bg-secondary text-mywhite rounded-lg hover:bg-secondaryLight hover:text-primary hover:scale-110 shadow-md">
               <FaHeart size={16} />
             </button>
             <Link
               href={`/product/${product.id}`}
-              className="flex items-center justify-center w-8 h-8 bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md z-50"
+              className="flex items-center justify-center w-8 h-8 bg-third text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 shadow-md z-50"
             >
               <IoMdEye size={18} />
             </Link>
@@ -77,28 +78,8 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           quality={100}
         />
       </div>
-      <div className="flex justify-center items-center gap-2">
-        <small className=" z-30 top-4 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-red-600 w-14 h-7 ">
-          <HiArrowSmDown className="text-xl" />%
-          {Math.round(product.discountPercent)}
-        </small>
-        <small className=" z-30 top-12 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-thirdDark w-14 h-7 ">
-          <FaStar className="size-3 mr-1" />
-          {product?.reviews?.length > 0 ? ratingResult : "0"}
-        </small>
-
-        {product.inStock ? (
-          <small className=" z-30 top-20 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-green-600 w-14 h-7  space-x-1">
-            <p>Stock</p>
-            <HiCheckCircle className="text-xl" />
-          </small>
-        ) : (
-          <small className=" z-30 top-20 right-5 flex justify-center items-center text-white rounded-lg p-1 bg-red-600 w-14 h-7 space-x-1">
-            <p>Stock</p>
-            <HiXCircle className="text-xl" />
-          </small>
-        )}
-      </div>
+      <Rating name="read-only" value={ratingResult} precision={0.5} readOnly />
+      <div className="flex justify-center items-center gap-2"></div>
       <h2 className="font-bold text-lg mt-2">{TextClip(product?.name)}</h2>
       <hr className="w-3/4" />
       <p className="text-slate-500 text-xs">
@@ -114,6 +95,20 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
           ₺
         </strong>
       </p>
+
+      <div className="flex items-center justify-center w-full">
+        {product.inStock ? (
+          <small className="flex items-center justify-center bg-third text-white text-md px-2 py-1 rounded-full w-full ">
+            <HiCheckCircle className="mr-1" />
+            In Stock
+          </small>
+        ) : (
+          <small className="flex items-center justify-center bg-fourthLight text-white text-md  px-2 py-1 rounded-full w-full ">
+            <HiXCircle className="mr-1" />
+            Out of Stock
+          </small>
+        )}
+      </div>
     </div>
   );
 }

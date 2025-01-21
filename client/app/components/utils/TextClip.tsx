@@ -3,7 +3,7 @@ function TextClip(text: string) {
     return <div>{text}</div>;
   }
 
-  return <div>{text.substring(0, 12) + "..."}</div>;
+  return <div>{text.substring(0, 15) + "..."}</div>;
 }
 
 export default TextClip;
