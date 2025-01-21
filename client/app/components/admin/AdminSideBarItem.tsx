@@ -16,15 +16,15 @@ function AdminSideBarItem({
 }: AdminSideBarItemProps) {
   return (
     <Link
-      className={`flex items-center justify-center gap-2  p-2 rounded-lg  ${
+      className={`flex items-center  justify-center gap-2 p-2 rounded-lg transition-colors md:px-3 w-[150px] ${
         selected
-          ? "text-myblack font-semibold bg-fourthDark"
-          : "text-slate-500 font-thin"
+          ? "bg-fourthDark text-mywhite text-xs font-semibold"
+          : "text-gray-600 hover:bg-gray-200 text-xs"
       }`}
       href={url}
     >
-      <Icon size={25} />
-      <div>{name}</div>
+      <Icon size={20} />
+      <span>{name}</span>
     </Link>
   );
 }

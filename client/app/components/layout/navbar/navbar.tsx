@@ -25,7 +25,7 @@ function Navbar() {
   ];
 
   return (
-    <header className="bg-primary text-mywhite">
+    <header className=" text-mywhite">
       {/* Top Bar */}
       <div className="top-bar flex justify-center items-center bg-myblack text-sm py-2">
         Up to <span className="text-secondary px-1">50% Off</span> on New Season
@@ -36,7 +36,7 @@ function Navbar() {
       </div>
 
       {/* Navbar */}
-      <nav className="relative bg-primary">
+      <nav className="relative bg-fourth border-b-2">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           {/* Logo */}
           <div className="text-4xl font-serif font-bold underline underline-offset-4">
@@ -61,11 +61,11 @@ function Navbar() {
               <li key={link.url} className="relative group">
                 <Link
                   href={link.url}
-                  className="text-mywhite text-md  hover:text-thirdLight transition-all duration-300"
+                  className="text-mywhite text-md  hover:text-secondary transition-all duration-300"
                 >
                   {link.name}
                 </Link>
-                <span className="absolute  -bottom-1 left-0 w-0 h-[2px] bg-mywhite transition-all duration-500 group-hover:w-full"></span>
+                <span className="absolute  -bottom-1 left-0 w-0 h-[2px] bg-secondary transition-all duration-500 group-hover:w-full"></span>
               </li>
             ))}
           </ul>
@@ -100,36 +100,37 @@ function Navbar() {
                 </span>
               </Link>
             </li>
-            <li>
-              <div className="relative border rounded-md py-1 px-2">
-                <div
-                  className="flex items-center space-x-2 cursor-pointer hover:opacity-70"
-                  onClick={() => setOpenDropdown(!openDropdown)}
-                >
+            <li
+              className="relative flex flex-col space-y-9"
+              onMouseEnter={() => setOpenDropdown(true)}
+              onMouseLeave={() => setOpenDropdown(false)}
+            >
+              <div className="border rounded-lg py-1 px-2 hover:border-thirdLight transition duration-300 hover:text-thirdLight">
+                <div className="flex items-center space-x-2 cursor-pointer">
                   <FaUser size={20} />
-                  <p className=" capitalize text-xl">berk</p>
+                  <p className="capitalize text-xl">berk</p>
                 </div>
-                {openDropdown && (
-                  <div className="absolute left-0 right-0 mt-3 p-1 bg-mywhite text-myblack shadow-xl rounded  text-md  font-thin  flex flex-col border text-center">
-                    {menuItems.map((item, i) => (
-                      <Link
-                        key={i}
-                        href={item.url}
-                        className=" hover:bg-gray-200  rounded "
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
               </div>
+              {openDropdown && (
+                <div className="absolute left-0 right-0 p-1 bg-mywhite text-myblack shadow-xl rounded text-md font-thin flex flex-col border text-center">
+                  {menuItems.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.url}
+                      className="hover:bg-gray-200 rounded px-2 py-1"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
           </ul>
         </div>
 
         {/* Mobile Menu */}
         {openMenu && (
-          <ul className="lg:hidden justify-center items-center flex flex-col bg-primary text-mywhite p-4 space-y-4 border-thirdLight border-b-2 ">
+          <ul className="lg:hidden justify-center items-center flex flex-col bg-fourth border-t-2 text-mywhite p-4 space-y-4 border-b-2 ">
             {navLinks.map((link) => (
               <li key={link.url}>
                 <Link

@@ -25,6 +25,8 @@ export default {
         fourthLight: "#F6CDD8", // Bir ton açık
         fourthDark: "#D89DAC", // Bir ton koyu
 
+        ratingcolor: "#FAAF00",
+
         mywhite: "#FFFFFF", // En beyaz
         myblack: "#000000", // En siyah
       },

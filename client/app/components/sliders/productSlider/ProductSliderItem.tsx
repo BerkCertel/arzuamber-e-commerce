@@ -30,7 +30,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
 
   return (
     <div
-      className="flex justify-center items-center flex-col space-y-1  shadow rounded border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px] lg:w-[300px] xl:w-[350px]"
+      className="flex justify-center items-center flex-col space-y-1  shadow rounded-lg border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px] lg:w-[300px] "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -98,12 +98,12 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
 
       <div className="flex items-center justify-center w-full">
         {product.inStock ? (
-          <small className="flex items-center justify-center bg-third text-white text-md px-2 py-1 rounded-full w-full ">
+          <small className="flex items-center justify-center bg-secondary text-white text-md px-2 py-1 rounded-full w-full ">
             <HiCheckCircle className="mr-1" />
             In Stock
           </small>
         ) : (
-          <small className="flex items-center justify-center bg-fourthLight text-white text-md  px-2 py-1 rounded-full w-full ">
+          <small className="flex items-center justify-center bg-third text-white text-md  px-2 py-1 rounded-full w-full ">
             <HiXCircle className="mr-1" />
             Out of Stock
           </small>

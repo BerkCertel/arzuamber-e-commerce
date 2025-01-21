@@ -48,7 +48,7 @@ function HomeSlider() {
           customTransition="all .7s"
           transitionDuration={1000}
           containerClass="carousel-container"
-          itemClass="flex justify-center items-center p-10"
+          itemClass="flex justify-center items-center p-10 rounded-lg"
         >
           {images?.map((image: CarouselType) => (
             <HomeSliderItem image={image} key={image.id} />

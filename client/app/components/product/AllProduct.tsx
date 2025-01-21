@@ -33,7 +33,7 @@ function AllProduct() {
   const pageCount = Math.ceil(products.length / productsPerPage);
 
   return (
-    <main className="p-6 sm:p-8 bg-gray-100 rounded-lg">
+    <main className="p-6 sm:p-8  rounded-lg">
       <Heading text="All Products" center />
       {loading ? (
         <Loading />
