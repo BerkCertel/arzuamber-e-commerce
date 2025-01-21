@@ -36,7 +36,7 @@ function Navbar() {
       </div>
 
       {/* Navbar */}
-      <nav className="relative bg-fourth border-b-2">
+      <nav className="relative bg-primary border-b-2">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           {/* Logo */}
           <div className="text-4xl font-serif font-bold underline underline-offset-4">
