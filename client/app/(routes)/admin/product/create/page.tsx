@@ -1,6 +1,6 @@
 import CreateForm from "@/app/components/admin/CreateForm";
 
-function CreateProduct() {
+function AdminCreateProduct() {
   return (
     <div>
       <CreateForm />
@@ -8,4 +8,4 @@ function CreateProduct() {
   );
 }
 
-export default CreateProduct;
+export default AdminCreateProduct;

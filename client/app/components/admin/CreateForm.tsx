@@ -156,9 +156,8 @@ function CreateForm() {
         <div className="w-full flex flex-wrap gap-4 justify-center">
           {categories.map((cat) => (
             <ChoiceInput
-              key={cat.name}
+              key={cat.id}
               text={cat.name}
-              icon={cat.icon}
               selected={category === cat.name}
               onClick={() => setCustomValue("category", cat.name)}
             />

@@ -43,7 +43,7 @@ function CartClient() {
       <h1 className="text-4xl font-bold text-gray-800 mb-6">Sepetiniz</h1>
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Ürün Tablosu */}
-        <div className="flex-1 overflow-x-auto">
+        <div className="flex-1">
           <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
             <thead className="bg-gray-100">
               <tr>
