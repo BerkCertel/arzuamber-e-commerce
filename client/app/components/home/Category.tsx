@@ -21,7 +21,9 @@ function Category() {
               key={i}
               className="flex flex-col items-center justify-center cursor-pointer border border-gray-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-900 rounded-lg shadow-lg transition-all p-6 transform hover:scale-105"
             >
-              <span className="font-semibold text-lg">{category.name}</span>
+              <span className="font-semibold text-lg capitalize">
+                {category.name}
+              </span>
             </div>
           ))}
         </div>
