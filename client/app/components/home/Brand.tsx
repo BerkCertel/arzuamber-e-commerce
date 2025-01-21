@@ -32,7 +32,7 @@ function Brand() {
         <Button
           primary
           animation
-          small
+          size="small"
           text="View Products"
           onClick={handleClick}
         />
