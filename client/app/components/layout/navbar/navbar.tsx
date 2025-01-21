@@ -28,9 +28,9 @@ function Navbar() {
     <header className=" text-mywhite">
       {/* Top Bar */}
       <div className="top-bar flex justify-center items-center bg-myblack text-sm py-2">
-        Up to <span className="text-secondary px-1">50% Off</span> on New Season
+        Up to <span className="text-fourth px-1">50% Off</span> on New Season
         Products!!!
-        <span className="text-thirdLight px-1 cursor-pointer hover:underline">
+        <span className="text-fourth px-1 cursor-pointer hover:underline">
           Check it out!
         </span>
       </div>
