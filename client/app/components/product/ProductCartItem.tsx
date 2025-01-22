@@ -35,14 +35,14 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Görsel Alanı */}
-      <div className="relative w-full h-full ">
+      <div className="relative w-full h-full bg-center bg-cover">
         <Image
           src={isHovered ? product?.images[1] : product?.images[0]}
           alt={product.name}
           fill
-          className="object-contain p-3  transition-transform duration-300"
+          className="object-contain  p-3  transition-all duration-500"
         />
-        <div className="absolute top-4 left-12 flex flex-col gap-2 opacity-100 group-hover:opacity-100 transition-opacity md:opacity-0">
+        <div className="absolute left-8 md:left-14 lg:left-14  xl:left-16  top-5   flex flex-col gap-2 opacity-100 group-hover:opacity-100 transition-opacity md:opacity-0">
           <button className="w-8 h-8 grid items-center justify-center bg-primary text-mywhite rounded-lg hover:bg-primaryLight hover:scale-110 transition-all shadow-md">
             <IoCart className="w-4 h-4" />
           </button>
@@ -56,15 +56,15 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
             <IoMdEye className="w-4 h-4" />
           </Link>
         </div>
-        <small className=" absolute  right-14 top-4   w-7 h-7 flex justify-center items-center bg-ratingcolor text-mywhite rounded-lg hover:bg-thirdLight hover:scale-110 transition-all shadow-md p-1">
+        <div className=" absolute right-8  md:right-14  lg:right-7 xl:right-16 lg:top-5 top-5 md:top-5 w-9 h-6 flex justify-center items-center bg-ratingcolor text-mywhite rounded text-sm shadow-md ">
           %{Math.round(product.discountPercent)}
-        </small>
+        </div>
       </div>
 
       {/* Ürün Detayları */}
       <div className="p-4 flex flex-col space-y-1  gap-2">
-        <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-2">
-          <h2 className="font-bold text-xl text-gray-800 ">
+        <div className="flex  lg:flex-row xl:flex-col justify-between items-center w-full gap-2">
+          <h2 className="font-bold text-xl xl:text-2xl text-gray-800 ">
             {TextClip(product.name)}
           </h2>
 
@@ -77,8 +77,8 @@ function ProductCartItem({ product }: ProductsSliderItemProps) {
         </div>
         <hr className="bg-black" />
 
-        <div>
-          <p className="text-gray-500 text-md line-through">
+        <div className="flex flex-col items-start justify-center ">
+          <p className="text-gray-700 text-md line-through">
             Original: {product.price}₺
           </p>
           <p className="text-green-600 font-bold text-lg">

@@ -11,7 +11,7 @@ function Category() {
   );
 
   return (
-    <div className="category-container p-4 md:p-8">
+    <div className="category-container p-5 md:p-8">
       {loading ? (
         <Loading />
       ) : (
@@ -19,9 +19,9 @@ function Category() {
           {categories.map((category, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center cursor-pointer border border-gray-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-900 rounded-lg shadow-lg transition-all p-6 transform hover:scale-105 h-[70px]"
+              className="flex flex-col items-center justify-center cursor-pointer border border-gray-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-900 rounded-lg shadow-lg transition-all p-6 transform hover:scale-105 h-[50px] md:h[70px]"
             >
-              <span className="font-semibold text-lg capitalize">
+              <span className="font-semibold  text-md md:text-lg capitalize">
                 {category.name}
               </span>
             </div>

@@ -3,6 +3,7 @@ import cartReducer from "./cartSlice";
 import productReducer from "./productSlice";
 import generalReducer from "./generalSlice";
 import categoryReducer from "./categorySlice";
+import footerReducer from "./footerSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     products: productReducer,
     categories: categoryReducer,
     general: generalReducer,
+    footer: footerReducer,
   },
 });
 

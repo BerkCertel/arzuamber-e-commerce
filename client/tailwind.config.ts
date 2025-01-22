@@ -10,20 +10,20 @@ export default {
     extend: {
       colors: {
         primary: "#441752",
-        primaryLight: "#5C216B", // Bir ton açık
-        primaryDark: "#310C3A", // Bir ton koyu
+        primaryLight: "#5C216B",
+        primaryDark: "#310C3A",
 
         secondary: "#8174A0",
-        secondaryLight: "#9A8BB6", // Bir ton açık
-        secondaryDark: "#675B84", // Bir ton koyu
+        secondaryLight: "#9A8BB6",
+        secondaryDark: "#675B84",
 
         third: "#A888B5",
-        thirdLight: "#C1A0CC", // Bir ton açık
-        thirdDark: "#8F6E95", // Bir ton koyu
+        thirdLight: "#C1A0CC",
+        thirdDark: "#8F6E95",
 
         fourth: "#EFB6C8",
-        fourthLight: "#F6CDD8", // Bir ton açık
-        fourthDark: "#D89DAC", // Bir ton koyu
+        fourthLight: "#F6CDD8",
+        fourthDark: "#D89DAC",
 
         ratingcolor: "#FAAF00",
 
