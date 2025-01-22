@@ -44,7 +44,7 @@ export const products: Product[] = [
         id: "64ae4e5f2c99a9e6b35423ec9",
         userId: "64ae4e5f2c99a9e6b3e1f1d0",
         productId: "1",
-        comment: "Nice fabric, but a bit tight around the waist.",
+        comment: "Nice fabric, but a bit tight around the waist. ",
         rating: 4,
         createDate: "2023-07-06T06:08.330672",
         user: {

@@ -112,8 +112,6 @@ const DetailClient = ({ product }: productProps) => {
 
   const ratingResult = isNaN(productRating) ? 0 : productRating;
 
-  console.log(product);
-
   const [open, setOpen] = useState(false);
 
   // line clamp state
@@ -142,16 +140,17 @@ const DetailClient = ({ product }: productProps) => {
   };
 
   // sizes select func
-
   const handleSizeSelect = (size: string) => {
     console.log(size);
   };
 
+  console.log(product);
+
   return (
     <div className="detail-page-main">
-      <div className="flex flex-col md:flex-row  justify-center items-start gap-8 p-8 bg-gray-50 rounded-lg shadow-xl mb-10 w-full h-full ">
+      <div className="flex flex-col lg:flex-row  justify-center items-start md:items-center lg:items-start gap-8 p-8 bg-gray-50 rounded-lg shadow-xl mb-10 w-full h-full ">
         {/* Image Section with Carousel */}
-        <div className=" w-full md:w-1/2 h-full relative">
+        <div className=" w-full md:w-1/2 h-[500px] relative">
           <Carousel
             responsive={responsive}
             infinite
@@ -160,16 +159,14 @@ const DetailClient = ({ product }: productProps) => {
             transitionDuration={500}
           >
             {product.images.map((img, index) => (
-              <div
-                key={index}
-                className=" w-full h-[400px] md:h-[500px] relative"
-              >
+              <div key={index} className=" w-full h-[500px] relative ">
                 <Image
                   className="object-contain absolute"
                   src={img}
                   alt={product.name}
                   fill
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             ))}
@@ -178,9 +175,9 @@ const DetailClient = ({ product }: productProps) => {
 
         {/* Product Details Section */}
         <div className="w-full md:w-1/2 flex flex-col gap-6 items-center md:items-start text-center md:text-left">
-          <div className="flex flex-col md:flex-row justify-between items-center w-full gap-2">
+          <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-2">
             {/* Product Name*/}
-            <h1 className=" capitalize  text-5xl font-serif font-extrabold text-secondaryDark">
+            <h1 className=" capitalize  text-4xl lg:text-3xl font-serif font-extrabold text-secondaryDark text-center">
               {TextClip(product.name)}
             </h1>
 
@@ -214,7 +211,7 @@ const DetailClient = ({ product }: productProps) => {
               )}
             </div>
             <div
-              className={`flex items-center justify-center gap-1 text-md font-thin  p-2 rounded-lg  text-mywhite bg-third capitalize "
+              className={`flex items-center justify-center gap-1 text-md font-thin  p-2 rounded-lg  text-mywhite bg-primary capitalize "
               `}
             >
               <span className="font-semibold">Kategori: </span>
@@ -242,12 +239,13 @@ const DetailClient = ({ product }: productProps) => {
           {/* Stock Status */}
           <div className="w-full flex justify-between items-center ">
             <div
-              className={` flex items-center justify-center text-lg  p-2 rounded-lg  text-mywhite ${
-                product.inStock ? "bg-third " : "bg-fourthLight"
+              className={` flex items-center justify-center text-lg font-semibold  p-2 rounded-lg  text-mywhite ${
+                product.inStock ? "bg-primary " : "bg-thirdLight"
               }`}
             >
               {product.inStock ? <p>Stock In</p> : <p>Out Of Stock</p>}
             </div>
+
             <div className="flex gap-2 ">
               {product.sizes.map((size, i) => (
                 <Button
@@ -308,6 +306,7 @@ const DetailClient = ({ product }: productProps) => {
                 size="icon"
                 icon={IoShareSocialSharp}
                 iconSize={25}
+                animation
               />
 
               {/* Snackbar bildirim */}

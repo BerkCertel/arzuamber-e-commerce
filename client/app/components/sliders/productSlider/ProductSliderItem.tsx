@@ -30,7 +30,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
 
   return (
     <div
-      className="flex justify-center items-center flex-col space-y-1  shadow rounded-lg border hover:shadow-2xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px] lg:w-[300px] "
+      className="flex justify-center items-center flex-col space-y-1  shadow rounded-lg border hover:shadow-xl transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px] lg:w-[300px] "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
