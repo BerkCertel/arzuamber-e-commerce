@@ -39,7 +39,7 @@ function Navbar() {
       <nav className="relative bg-primary border-b-2">
         <div className="container mx-auto flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <div className="text-4xl font-serif font-bold underline underline-offset-4">
+          <div className="text-2xl md:text-4xl font-serif font-bold underline underline-offset-4">
             <Link href="/">ARZUAMBER</Link>
           </div>
 
@@ -117,7 +117,7 @@ function Navbar() {
                     <Link
                       key={i}
                       href={item.url}
-                      className="hover:bg-gray-200 rounded px-2 py-1"
+                      className="hover:bg-gray-200  rounded px-2 py-1"
                     >
                       {item.name}
                     </Link>
@@ -149,19 +149,19 @@ function Navbar() {
             <li>
               <div className="relative">
                 <div
-                  className="flex items-center space-x-2 cursor-pointer border rounded-md p-2 hover:opacity-60"
+                  className="flex items-center space-x-2 cursor-pointer border rounded-md p-2 hover:opacity-60 hover:border-secondary"
                   onClick={() => setOpenDropdown(!openDropdown)}
                 >
                   <FaUser />
                   <p className=" capitalize tex">berk</p>
                 </div>
                 {openDropdown && (
-                  <div className="absolute right-0 left-0 mt-2 bg-mywhite text-myblack shadow-xl rounded p-1 flex flex-col border-2 border-myblack">
+                  <div className="absolute right-0 left-0 mt-1 bg-fourth text-mywhite shadow-xl rounded p-2 flex flex-col space-y-2 border p z-50">
                     {menuItems.map((item, i) => (
                       <Link
                         key={i}
                         href={item.url}
-                        className="text-center  px-2 py-1 hover:bg-gray-200 rounded"
+                        className="text-center hover:bg-secondary rounded"
                       >
                         {item.name}
                       </Link>

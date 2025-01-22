@@ -80,7 +80,7 @@ const Footer = () => {
         <div className="mt-10 border-t border-gray-600 pt-6 flex flex-col md:flex-row justify-between items-center">
           {/* Copyright */}
           <p className="text-sm text-center mb-4 md:mb-0">
-            © 2025 Women’s Fashion. All Rights Reserved.
+            © 2025 Arzu Amber. All Rights Reserved.
           </p>
 
           {/* Social Media */}

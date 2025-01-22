@@ -8,7 +8,7 @@ interface HeadingProps {
 
 const Heading = ({ center, text, color }: HeadingProps) => {
   return (
-    <div className="mb-5 ">
+    <div className="mb-5 p-5 md:p-0 ">
       <div
         className={` text-4xl mb-5 text-black px-3 md:px-10 md:text-5xl   
           ${center ? "text-center" : "text-start"} ${
