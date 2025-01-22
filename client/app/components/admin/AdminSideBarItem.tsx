@@ -6,6 +6,7 @@ interface AdminSideBarItemProps {
   name: string;
   icon: IconType;
   url: string;
+  isOpen: boolean;
 }
 
 function AdminSideBarItem({
@@ -13,18 +14,17 @@ function AdminSideBarItem({
   name,
   url,
   selected,
+  isOpen,
 }: AdminSideBarItemProps) {
   return (
     <Link
-      className={`flex items-center  justify-center gap-2 p-2 rounded-lg transition-colors md:px-3 w-[150px] ${
-        selected
-          ? "bg-fourthDark text-mywhite text-xs font-semibold"
-          : "text-gray-600 hover:bg-gray-200 text-xs"
+      className={`flex items-center p-3 gap-2 w-full text-gray-300 hover:bg-gray-600 rounded-md transition-all duration-200 ${
+        selected ? "bg-gray-700 text-white" : ""
       }`}
       href={url}
     >
       <Icon size={20} />
-      <span>{name}</span>
+      <span className={`${isOpen ? "block" : "hidden"} text-sm`}>{name}</span>
     </Link>
   );
 }

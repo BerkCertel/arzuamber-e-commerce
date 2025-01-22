@@ -1,15 +1,37 @@
-import AdminSideBar from "@/app/components/admin/AdminSideBar";
-import React from "react";
+"use client";
 
-interface RoutesLayoutProps {
+import SideBar from "@/app/components/admin/SideBar";
+import Button from "@/app/components/general/Button";
+import { useRouter } from "next/navigation";
+
+interface AdminLayoutProps {
   children: React.ReactNode;
 }
 
-function AdminLayout({ children }: RoutesLayoutProps) {
+function AdminLayout({ children }: AdminLayoutProps) {
+  const router = useRouter();
+
+  const handleGoHome = () => {
+    router.push(`/`);
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center gap-3">
-      <AdminSideBar />
-      {children}
+    <div className="flex">
+      <SideBar />
+      <div className="flex-1 h-screen flex flex-col">
+        <header className="bg-gray-800 text-white flex justify-between items-center p-4">
+          <div className="hidden lg:block">Admin Panel</div>
+
+          <Button
+            animation
+            primary
+            size="small"
+            text="Go To Home"
+            onClick={handleGoHome}
+          />
+        </header>
+        <main> {children}</main>
+      </div>
     </div>
   );
 }

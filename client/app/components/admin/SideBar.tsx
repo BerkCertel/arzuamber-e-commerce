@@ -1,14 +1,14 @@
+"use client";
+
 import React from "react";
-import AdminSideBarItem from "./AdminSideBarItem";
 import { MdSpaceDashboard, MdEventNote } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { IoCreateOutline } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Button from "../general/Button";
 
-function AdminSideBar({ isOpen }: { isOpen: boolean }) {
-  const pathname = usePathname();
-
+function SideBar() {
   const adminPanel = [
     { name: "Summary", icon: MdSpaceDashboard, url: "/admin" },
     { name: "Orders", icon: MdEventNote, url: "/admin/orders" },
@@ -40,25 +40,31 @@ function AdminSideBar({ isOpen }: { isOpen: boolean }) {
   ];
 
   return (
-    <div
-      className={`flex flex-col bg-primary h-full transition-all duration-300 ${
-        isOpen ? "w-64" : "w-16"
-      } md:w-64`}
-    >
-      <div className="flex flex-col items-start justify-center gap-1 p-3">
-        {adminPanel.map((admin, index) => (
-          <AdminSideBarItem
-            key={index}
-            name={admin.name}
-            icon={admin.icon}
-            url={admin.url}
-            selected={pathname === admin.url}
-            isOpen={isOpen}
-          />
-        ))}
+    <div className="hidden lg:flex h-screen w-72 bg-gray-800 border-r-2">
+      <div className="flex flex-col gap-4 justify-center items-center w-full">
+        <div className="mx-auto ml-14 justify-center items-center mt-12">
+          <Link href={`/`} className="text-white underline underline-offset-4">
+            ARZUAMBER
+          </Link>
+        </div>
+        <nav className="flex flex-col w-[90%] h-full justify-between md:flex gap-3">
+          <ul className="hidden md:flex w-full flex-col items-start gap-4 mt-14">
+            {adminPanel.map((admin) => (
+              <Link href={admin.url} key={admin.name}>
+                <Button
+                  primary
+                  animation
+                  icon={admin.icon}
+                  size="small"
+                  text={admin.name}
+                />
+              </Link>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   );
 }
 
-export default AdminSideBar;
+export default SideBar;

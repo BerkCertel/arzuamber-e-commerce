@@ -14,7 +14,7 @@ function LayoutProvider({ children }: RoutesLayoutProps) {
     <div className="flex flex-col space-y-8">
       <Navbar />
       <ToastContainer />
-      {children}
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );

@@ -1,5 +1,11 @@
+import PageContainer from "@/app/components/Containers/PageContainer";
+
 function FavoritesPage() {
-  return <div>FavoritesPage</div>;
+  return (
+    <PageContainer>
+      <div>FavoritesPage</div>
+    </PageContainer>
+  );
 }
 
 export default FavoritesPage;

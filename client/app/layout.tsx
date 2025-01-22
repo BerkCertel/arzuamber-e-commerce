@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import PageContainer from "./components/Containers/PageContainer";
 import StoreProvider from "@/store/StoreProvider";
 import LayoutProvider from "./components/layout/layout";
 import "react-multi-carousel/lib/styles.css";
@@ -32,9 +31,7 @@ export default function RootLayout({
         className={`bg-fourthLight  ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <StoreProvider>
-          <LayoutProvider>
-            <PageContainer>{children}</PageContainer>
-          </LayoutProvider>
+          <LayoutProvider>{children}</LayoutProvider>
         </StoreProvider>
       </body>
     </html>

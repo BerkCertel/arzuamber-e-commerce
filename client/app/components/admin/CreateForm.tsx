@@ -92,7 +92,7 @@ function CreateForm() {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-gray-50 p-6 rounded-md">
+    <div className="w-full min-h-screen flex flex-col items-center  p-6 rounded-md">
       <Heading center text="Create Product" />
       <form
         className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 space-y-6"
@@ -168,6 +168,7 @@ function CreateForm() {
         <div className="flex justify-center">
           <Button
             animation
+            primary
             text="Ürünü Oluştur"
             onClick={handleSubmit(onSubmit)}
           />

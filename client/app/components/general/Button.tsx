@@ -3,7 +3,7 @@ import { IconType } from "react-icons";
 
 interface ButtonProps {
   text?: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   size?: "icon" | "small" | "medium" | "large";
   outline?: boolean;
   icon?: IconType | undefined;
@@ -47,8 +47,8 @@ function Button({
       disabled={disabled}
       onClick={onClick}
     >
-      {text}
       {Icon && <Icon size={iconSize} />}
+      {text}
     </button>
   );
 }
