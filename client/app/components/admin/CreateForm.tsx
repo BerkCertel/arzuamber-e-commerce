@@ -4,7 +4,6 @@ import { FieldValues, SubmitErrorHandler, useForm } from "react-hook-form";
 import Heading from "../general/Heading";
 import Input from "../general/Input";
 import CheckBox from "../general/CheckBox";
-import ChoiceInput from "../general/ChoiceInput";
 import Button from "../general/Button";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -12,6 +11,8 @@ import FileInput from "../general/FileInput";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import Image from "next/image";
+// import ChoiceInput from "../general/ChoiceInput";
+import Dropdown from "../general/DropDown";
 
 function CreateForm() {
   const { categories } = useSelector((state: RootState) => state.categories);
@@ -35,7 +36,7 @@ function CreateForm() {
     },
   });
 
-  const [images, setImages] = useState<string[]>(["", "", "", ""]);
+  const [images, setImages] = useState<string[]>([]);
 
   const handleImageChange = async (
     index: number,
@@ -92,34 +93,52 @@ function CreateForm() {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center  p-6 rounded-md">
-      <Heading center text="Create Product" />
+    <div className="w-full  h-full md:h-screen  flex flex-col items-center justify-center  shadow-lx ">
       <form
-        className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 space-y-6"
+        className="w-[90%] h-full  my-1 shadow-xl  px-7 py-2 space-y-5   bg-gray-200 rounded-lg "
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Input
-          placeholder="Ürün İsmi"
-          id="name"
-          type="text"
-          errors={errors}
-          register={register}
+        <Heading
+          center
+          text="Create Product"
+          textSize="3xl"
+          color="black"
+          font="semibold"
         />
-        <Input
-          placeholder="Ürün Açıklaması"
-          id="description"
-          type="text"
-          errors={errors}
-          register={register}
-        />
-        <Input
-          placeholder="Ürün Fiyatı"
-          id="price"
-          type="number"
-          errors={errors}
-          register={register}
-        />
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 items-center">
+          <Input
+            placeholder="Product Name"
+            id="name"
+            type=""
+            errors={errors}
+            register={register}
+          />
+          <Input
+            placeholder="Product Description"
+            id="description"
+            type="text"
+            errors={errors}
+            register={register}
+          />
+          {/* Category Section */}
+
+          <Input
+            placeholder="Product Price"
+            id="price"
+            type="number"
+            errors={errors}
+            register={register}
+          />
+          <Dropdown
+            options={categories}
+            selectedOption={category}
+            onSelect={(option) => setCustomValue("category", option)}
+            placeholder="Select Category"
+          />
+        </div>
+
         <div className="flex justify-around items-center space-x-4">
+          {/* Checkbox Section  */}
           <CheckBox
             label="Is the product active?"
             id="isActive"
@@ -127,33 +146,36 @@ function CreateForm() {
           />
           <CheckBox label="New season?" id="isNewSeason" register={register} />
         </div>
+
         {/* File Upload Section */}
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
           {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full "
+            >
               <FileInput
                 id={`image-${index}`}
-                label={`image ${index + 1}`}
+                label={`Image ${index + 1}`}
                 onChange={(e) => handleImageChange(index, e)}
                 errors={errors}
               />
               {images[index] && (
-                <div className="mt-2 flex justify-center">
+                <div className="mt-4 w-full flex justify-center items-center">
                   <Image
                     src={images[index]}
                     alt={`Preview ${index + 1}`}
-                    width={128}
-                    height={128}
-                    className="object-cover rounded-md"
+                    width={100} // Sabit width
+                    height={100} // Sabit height
+                    className="object-cover rounded-md border border-gray-300"
                   />
                 </div>
               )}
             </div>
           ))}
         </div>
-
         {/* Category Section */}
-        <div className="w-full flex flex-wrap gap-4 justify-center">
+        {/* <div className="w-full flex flex-wrap gap-4 justify-center">
           {categories.map((cat) => (
             <ChoiceInput
               key={cat.id}
@@ -162,7 +184,7 @@ function CreateForm() {
               onClick={() => setCustomValue("category", cat.name)}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Submit Button */}
         <div className="flex justify-center">

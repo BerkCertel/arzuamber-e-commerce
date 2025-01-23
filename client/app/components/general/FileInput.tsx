@@ -30,7 +30,7 @@ function FileInput({
         disabled={disabled}
         required={required}
         onChange={onChange}
-        className={`h-12 my-3 p-2 border outline-none rounded-md ${
+        className={` w-full h-12 my-3 p-2 border outline-none rounded-md ${
           errors[id] ? "border-red-500" : "border-gray-300"
         }`}
       />

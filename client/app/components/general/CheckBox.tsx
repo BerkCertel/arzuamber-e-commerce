@@ -17,7 +17,7 @@ function CheckBox({ id, register, label }: CheckBoxProps) {
       />
       <label
         htmlFor={id}
-        className="text-sm font-medium text-gray-700 cursor-pointer"
+        className="text-xs md:text-sm font-medium text-gray-700 cursor-pointer"
       >
         {label}
       </label>

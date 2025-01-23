@@ -5,6 +5,7 @@ import { FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -24,10 +25,16 @@ function Navbar() {
     { name: "Contact", url: "/contact" },
   ];
 
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
-    <header className=" text-mywhite">
+    <header className=" text-mywhite z-50">
       {/* Top Bar */}
-      <div className="top-bar flex justify-center items-center bg-myblack text-sm py-2">
+      <div className="top-bar hidden md:flex justify-center items-center bg-myblack text-sm py-2">
         Up to <span className="text-fourth px-1">50% Off</span> on New Season
         Products!!!
         <span className="text-fourth px-1 cursor-pointer hover:underline">
@@ -44,10 +51,10 @@ function Navbar() {
           </div>
 
           {/* Hamburger Menu (Mobile) */}
-          <div className="lg:hidden">
+          <div className="lg:hidden flex items-center justify-center">
             <button
               onClick={() => setOpenMenu(!openMenu)}
-              className="text-mywhite text-2xl focus:outline-none"
+              className="text-mywhite text-2xl focus:outline-none border rounded-md p-1 "
             >
               {openMenu ? <FaTimes /> : <FaBars />}
             </button>
@@ -135,7 +142,7 @@ function Navbar() {
               <li key={link.url}>
                 <Link
                   href={link.url}
-                  className="block text-lg hover:text-thirdLight underline underline-offset-4"
+                  className="block text-lg hover:text-thirdLight underline underline-offset-4 bg  px-2 rounded-md"
                 >
                   {link.name}
                 </Link>

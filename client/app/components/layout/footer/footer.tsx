@@ -4,12 +4,19 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { RootState } from "@/store/store";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   // Get social media links from Redux
   const socialLinks = useSelector(
     (state: RootState) => state.footer.socialLinks
   );
+
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-primary  to-primaryDark text-white py-12">

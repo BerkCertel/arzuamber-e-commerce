@@ -27,8 +27,8 @@ export default {
 
         ratingcolor: "#FAAF00",
 
-        mywhite: "#FFFFFF", // En beyaz
-        myblack: "#000000", // En siyah
+        mywhite: "#FFFFFF",
+        myblack: "#000000",
       },
     },
   },

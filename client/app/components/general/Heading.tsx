@@ -4,21 +4,39 @@ interface HeadingProps {
   center?: boolean;
   text: string;
   color?: "black" | "white";
+  font?: "bold" | "semibold" | "extrabold";
+  textSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }
 
-const Heading = ({ center, text, color }: HeadingProps) => {
+const Heading = ({
+  center,
+  text,
+  color = "black",
+  font = "semibold",
+  textSize = "2xl",
+}: HeadingProps) => {
   return (
-    <div className="mb-5 p-5 md:p-0 ">
+    <div className="mb-5 md:mt-5 p-1 md:p-0 flex items-center justify-center flex-col">
       <div
-        className={` text-4xl mb-5 text-black px-3 md:px-10 md:text-5xl   
-          ${center ? "text-center" : "text-start"} ${
-          color ? "text-black" : "text-white"
-        }
-          `}
+        className={`mb-5 px-3 md:px-10 
+          ${center ? "text-center" : "text-start"} 
+          ${color === "black" ? "text-black" : "text-white"} 
+          ${
+            font === "extrabold"
+              ? "font-extrabold"
+              : font === "semibold"
+              ? "font-semibold"
+              : "font-bold"
+          } 
+          text-${textSize}`}
       >
         {text}
       </div>
-      <hr className="w-full  " />
+      <hr
+        className={`text-center  w-3/4 md:w-full ${
+          color === "black" ? "bg-myblack" : "bg-mywhite"
+        }`}
+      />
     </div>
   );
 };
