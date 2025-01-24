@@ -11,6 +11,7 @@ interface ButtonProps {
   primary?: boolean;
   animation?: boolean;
   iconSize?: number;
+  className?: string;
 }
 
 function Button({
@@ -23,6 +24,7 @@ function Button({
   primary,
   animation,
   iconSize = 20,
+  className,
 }: ButtonProps) {
   const sizeClasses = {
     icon: "w-[40px] h-[40px]",
@@ -33,9 +35,11 @@ function Button({
 
   return (
     <button
-      className={`rounded-lg p-3 flex justify-center items-center gap-2   ${
-        outline ? "border text-black" : "bg-black text-white"
-      } ${sizeClasses[size]} 
+      className={`rounded-lg p-3 flex justify-center items-center gap-2 text-center   
+        ${className}
+      ${outline ? "border text-black" : "bg-black text-white"} ${
+        sizeClasses[size]
+      } 
       ${
         animation
           ? "hover:brightness-110 hover:scale-105 transition-all duration-300"

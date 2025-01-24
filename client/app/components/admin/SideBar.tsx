@@ -7,10 +7,10 @@ import { AiFillProduct } from "react-icons/ai";
 import Link from "next/link";
 import Button from "../general/Button";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FaRegListAlt } from "react-icons/fa";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const toggleSidebar = () => {
@@ -22,7 +22,7 @@ const SideBar = () => {
     { name: "Summary", icon: MdSpaceDashboard, url: "/admin", options: [] },
     { name: "Orders", icon: MdEventNote, url: "/admin/orders", options: [] },
     {
-      name: "Product",
+      name: "Products",
       icon: AiFillProduct,
       url: "/admin/product",
       options: [
@@ -44,10 +44,14 @@ const SideBar = () => {
       ],
     },
     {
-      name: "Category",
+      name: "Categories",
       icon: MdCategory,
-      url: "/admin/category",
       options: [
+        {
+          name: "All Category",
+          icon: FaRegListAlt,
+          url: "/admin/categor",
+        },
         {
           name: "Create Category",
           icon: IoMdStarOutline,
@@ -66,10 +70,14 @@ const SideBar = () => {
       ],
     },
     {
-      name: "Blog",
+      name: "Blogs",
       icon: IoMdStarOutline,
-      url: "/admin/blog",
       options: [
+        {
+          name: "All Blog",
+          icon: FaRegListAlt,
+          url: "/admin/blog",
+        },
         {
           name: "Create Blog",
           icon: IoMdStarOutline,
@@ -85,22 +93,28 @@ const SideBar = () => {
     },
   ];
 
+  const handleItemClick = (itemName: string) => {
+    setSelectedItem((prevSelectedItem) =>
+      prevSelectedItem === itemName ? null : itemName
+    );
+  };
+
   return (
     <>
       <button
         onClick={toggleSidebar}
-        className="fixed h-10 w-10 top-7 right-6 md:top-2 md:right-12 z-50 lg:hidden p-2 text-white bg-primary border border-black rounded-md  "
+        className="fixed h-10 w-10 top-7 right-6 md:top-2 md:right-12 z-50 lg:hidden p-2 text-white bg-primary border border-black rounded-md"
       >
         {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
       </button>
       <div
-        className={`fixed top-0 left-0 z-40  h-full bg-primary  transition-transform ${
+        className={`fixed top-0 left-0 z-40 h-full bg-primary transition-transform ${
           isOpen
             ? "translate-x-0"
             : "-translate-x-full flex items-center justify-center w-full"
         } lg:translate-x-0 lg:static lg:flex lg:w-72`}
       >
-        <div className="flex flex-col justify-center items-center w-72 h-full ">
+        <div className="flex flex-col justify-center items-center w-72 h-full">
           <div className="flex justify-center items-center flex-col gap-4">
             <Link
               href={`/`}
@@ -109,46 +123,39 @@ const SideBar = () => {
               ARZUAMBER
             </Link>
           </div>
-          <nav className="flex flex-col  items-center w-[90%] justify-between gap-3 p-2">
-            <ul className="flex w-full flex-col items-center space-y-2 ">
+          <nav className="flex flex-col items-center justify-between gap-3">
+            <ul className="flex w-full flex-col items-center space-y-2">
               {adminPanel.map((admin) => (
                 <div
                   key={admin.name}
-                  onMouseEnter={() => setHoveredItem(admin.name)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  onClick={() =>
-                    setSelectedItem(
-                      selectedItem === admin.name ? null : admin.name
-                    )
-                  }
-                  className={`w-full block z-10`}
+                  onClick={() => handleItemClick(admin.name)}
+                  className={`w-full block relative`}
                 >
-                  <Link href={admin.url}>
-                    <Button
-                      primary
-                      animation
-                      icon={admin.icon}
-                      size="small"
-                      text={admin.name}
-                    />
-                  </Link>
-                  {(hoveredItem === admin.name ||
-                    selectedItem === admin.name) &&
-                    admin.options.length > 0 && (
-                      <div className="flex flex-col items-start justify-center mt-2  gap-2 w-full ">
-                        {admin.options.map((option) => (
-                          <Link href={option.url} key={option.name}>
-                            <Button
-                              primary
-                              animation
-                              icon={option.icon}
-                              size="small"
-                              text={option.name}
-                            />
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                  <Button
+                    className={`${
+                      selectedItem === admin.name
+                        ? "bg-third text-mywhite z-50"
+                        : ""
+                    }`}
+                    icon={admin.icon}
+                    size="small"
+                    text={admin.name}
+                  />
+
+                  {selectedItem === admin.name && admin.options.length > 0 && (
+                    <div className="md:relative md:-top-2 md:left-7 mt-2 md:mt-0 flex flex-col items-center justify-center w-full z-1 bg-secondary rounded-md">
+                      {admin.options.map((option) => (
+                        <Link href={option.url} key={option.name}>
+                          <Button
+                            className="bg-secondary text-center hover:bg-fourth w-f"
+                            icon={option.icon}
+                            text={option.name}
+                            size="small"
+                          />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </ul>

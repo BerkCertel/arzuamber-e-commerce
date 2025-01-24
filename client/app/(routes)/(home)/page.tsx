@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <PageContainer>
       <HomeSlider />
-      <Heading text="All Categories" center />
+      <Heading text="All Categories" center color="white" />
       <Category />
       <ProductSlider />
       <Brand />

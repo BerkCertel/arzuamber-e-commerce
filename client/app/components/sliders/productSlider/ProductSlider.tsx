@@ -38,7 +38,7 @@ function ProductSlider() {
         <Loading />
       ) : (
         <>
-          <Heading text="New Season" center />
+          <Heading text="New Season" center color="white" />
 
           <Carousel
             responsive={responsive}
