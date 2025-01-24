@@ -10,6 +10,8 @@ interface InputProps {
   required?: boolean;
   errors: FieldErrors;
   register: UseFormRegister<FieldValues>;
+  min?: number;
+  max?: number;
 }
 
 function Input({
@@ -20,17 +22,21 @@ function Input({
   required,
   errors,
   register,
+  min = 0,
+  max,
 }: InputProps) {
   return (
     <div className="flex flex-col">
       <input
         id={id}
         placeholder={placeholder}
+        min={min}
+        max={max}
         disabled={disabled}
         type={type}
         required={required}
         {...register(id, { required })}
-        className={`h-12 my-3 p-3 border outline-none rounded-md text-xs ${
+        className={`h-12 my-3 p-3 border outline-none rounded-md text-xs capitalize ${
           errors[id] ? "border-red-500" : "border-gray-300"
         }`}
       />

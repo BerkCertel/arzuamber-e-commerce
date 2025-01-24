@@ -10,7 +10,6 @@ import { useState } from "react";
 import FileInput from "../general/FileInput";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import Image from "next/image";
 // import ChoiceInput from "../general/ChoiceInput";
 import Dropdown from "../general/DropDown";
 
@@ -95,17 +94,17 @@ function CreateForm() {
   return (
     <div className="w-full  h-full md:h-screen  flex flex-col items-center justify-center  shadow-lx ">
       <form
-        className="w-[90%] h-full  my-1 shadow-xl  px-7 py-2 space-y-5   bg-gray-200 rounded-lg "
+        className="w-[90%] h-full  my-1 shadow-xl  px-7 py-4 space-y-5   bg-gray-200 rounded-lg overflow-hidden flex items-center justify-start flex-col "
         onSubmit={handleSubmit(onSubmit)}
       >
         <Heading
           center
           text="Create Product"
-          textSize="3xl"
+          textSize="4xl"
           color="black"
           font="semibold"
         />
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center w-full">
           <Input
             placeholder="Product Name"
             id="name"
@@ -120,15 +119,16 @@ function CreateForm() {
             errors={errors}
             register={register}
           />
-          {/* Category Section */}
-
           <Input
             placeholder="Product Price"
             id="price"
             type="number"
+            min={0}
+            max={100000}
             errors={errors}
             register={register}
           />
+
           <Dropdown
             options={categories}
             selectedOption={category}
@@ -137,7 +137,7 @@ function CreateForm() {
           />
         </div>
 
-        <div className="flex justify-around items-center space-x-4">
+        <div className="flex justify-around items-center space-x-4 w-full">
           {/* Checkbox Section  */}
           <CheckBox
             label="Is the product active?"
@@ -148,11 +148,11 @@ function CreateForm() {
         </div>
 
         {/* File Upload Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-4 w-full ">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full "
+              className="flex flex-col items-start p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full "
             >
               <FileInput
                 id={`image-${index}`}
@@ -160,17 +160,6 @@ function CreateForm() {
                 onChange={(e) => handleImageChange(index, e)}
                 errors={errors}
               />
-              {images[index] && (
-                <div className="mt-4 w-full flex justify-center items-center">
-                  <Image
-                    src={images[index]}
-                    alt={`Preview ${index + 1}`}
-                    width={100} // Sabit width
-                    height={100} // Sabit height
-                    className="object-cover rounded-md border border-gray-300"
-                  />
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -187,14 +176,15 @@ function CreateForm() {
         </div> */}
 
         {/* Submit Button */}
-        <div className="flex justify-center">
-          <Button
-            animation
-            primary
-            text="Ürünü Oluştur"
-            onClick={handleSubmit(onSubmit)}
-          />
-        </div>
+
+        <Button
+          animation
+          primary
+          size="large"
+          text="Ürünü Oluştur"
+          onClick={handleSubmit(onSubmit)}
+          className=" w-5/6 "
+        />
       </form>
     </div>
   );

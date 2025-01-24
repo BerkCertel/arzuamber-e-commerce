@@ -35,7 +35,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         className="border border-primary rounded-lg p-3 bg-mywhite cursor-pointer flex justify-between items-center shadow-md"
       >
-        <span className="text-primary">{selectedOption || placeholder}</span>
+        <span className="text-primary capitalize">
+          {selectedOption || placeholder}
+        </span>
         <span className="text-primary">
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
         </span>
@@ -48,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             <div
               key={option.id}
               onClick={() => handleSelect(option.name)}
-              className={`p-3 cursor-pointer hover:bg-thirdLight ${
+              className={`p-3 cursor-pointer hover:bg-thirdLight capitalize ${
                 selectedOption === option.name
                   ? "bg-thirdDark text-mywhite"
                   : "text-myblack"
