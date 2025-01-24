@@ -39,7 +39,10 @@ function FileInput({
 
   return (
     <div className="flex flex-col w-full">
-      <label htmlFor={id} className="mb-2 font-semibold text-sm md:text-base">
+      <label
+        htmlFor={id}
+        className="mb-2 font-semibold text-sm md:text-base text-secondary"
+      >
         {label}
       </label>
       <input
@@ -54,14 +57,14 @@ function FileInput({
       />
       {fileName && (
         <div className="flex flex-col md:flex-row items-center justify-around my-2 w-full gap-3 ">
-          <span className=" text-xs bg-secondary rounded-md p-1 text-mywhite ">
+          <span className=" text-xs bg-secondary rounded-md  text-mywhite w-full p-3">
             {fileName}
           </span>
           <Button
             onClick={handleFileRemove}
             animation
             text="Delete"
-            className="bg-primary w-5/6 md:w-1/2 h-10"
+            className="bg-secondary w-5/6 md:w-1/3 h-10"
           />
         </div>
       )}

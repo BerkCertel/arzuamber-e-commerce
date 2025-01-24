@@ -125,12 +125,12 @@ const SideBar = () => {
     <>
       <button
         onClick={toggleSidebar}
-        className="fixed h-10 w-10 top-7 right-6 md:top-2 md:right-12 z-50 lg:hidden p-2 text-white bg-primary border border-black rounded-md n"
+        className="fixed h-8 w-8 top-20 left-6 md:top-2 md:right-12 z-50 lg:hidden p-2 text-white bg-secondary border border-mywhite rounded-lg flex items-center justify-center "
       >
-        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        {isOpen ? <FaTimes size={17} /> : <FaBars size={17} />}
       </button>
       <div
-        className={`fixed top-0 left-0 z-40 h-screen bg-primary transition-transform overflow-hidde ${
+        className={`fixed top-0 left-0 z-40 h-full md:h-[89vh] bg-primary transition-transform overflow-hidden ${
           isOpen
             ? "translate-x-0"
             : "-translate-x-full flex items-center justify-center w-full"
@@ -140,7 +140,7 @@ const SideBar = () => {
           <div className="flex justify-center items-center flex-col gap-4">
             <Link
               href={`/`}
-              className="text-white underline underline-offset-4 text-3xl font-bold font-serif"
+              className="text-white underline underline-offset-4 text-2xl md:text-3xl font-bold font-serif"
             >
               ARZUAMBER
             </Link>
@@ -154,7 +154,7 @@ const SideBar = () => {
                   className={`w-full block relative`}
                 >
                   <Button
-                    className={`${
+                    className={`text-xs md:text-base ${
                       selectedItem === admin.name
                         ? "bg-third text-mywhite z-50"
                         : ""
@@ -166,11 +166,11 @@ const SideBar = () => {
 
                   {/* Mobile - toggle options visibility */}
                   {selectedItem === admin.name && admin.options.length > 0 && (
-                    <div className="md:relative md:-top-2 md:left-5 mt-2 md:mt-0 flex flex-col items-center justify-center w-full z-1 bg-secondary rounded-md">
+                    <div className="md:relative md:-top-2 md:left-5 mt-2 md:mt-0 flex flex-col items-center justify-center w-full z-1 bg-secondary rounded-md ">
                       {admin.options.map((option) => (
                         <Link href={option.url} key={option.name}>
                           <Button
-                            className="bg-secondary text-center hover:bg-fourth "
+                            className="bg-secondary text-center hover:bg-fourth text-xs md:text-base"
                             icon={option.icon}
                             text={option.name}
                             size="small"

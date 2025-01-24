@@ -36,7 +36,7 @@ function Input({
         type={type}
         required={required}
         {...register(id, { required })}
-        className={`h-12 my-3 p-3 border outline-none rounded-md text-xs capitalize ${
+        className={`h-12 my-3 p-3 border outline-none rounded-md text-xs  ${
           errors[id] ? "border-red-500" : "border-gray-300"
         }`}
       />

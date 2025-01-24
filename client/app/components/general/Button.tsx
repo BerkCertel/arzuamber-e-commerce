@@ -12,6 +12,7 @@ interface ButtonProps {
   animation?: boolean;
   iconSize?: number;
   className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 function Button({
@@ -29,13 +30,13 @@ function Button({
   const sizeClasses = {
     icon: "w-[40px] h-[40px]",
     small: "w-[250px]",
-    medium: "w-[500px]",
+    medium: "w-[800px]",
     large: "w-full",
   };
 
   return (
     <button
-      className={`rounded-lg p-3 flex justify-center items-center gap-2 text-center   
+      className={`rounded-lg p-3 flex justify-center items-center gap-2 text-center text-base   
         ${className}
       ${outline ? "border text-black" : "bg-black text-white"} ${
         sizeClasses[size]

@@ -11,7 +11,7 @@ interface RoutesLayoutProps {
 
 function LayoutProvider({ children }: RoutesLayoutProps) {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col h-full">
       <Navbar />
       <ToastContainer />
       <main className="flex-grow">{children}</main>

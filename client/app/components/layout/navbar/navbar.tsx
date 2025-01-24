@@ -5,7 +5,6 @@ import { FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -13,6 +12,8 @@ function Navbar() {
 
   const menuItems = [
     { name: "Profile", url: "/profile" },
+    { name: "Sign Up", url: "/register" },
+    { name: "Log In", url: "/login" },
     { name: "Admin", url: "/admin" },
     { name: "Logout", url: "/logout" },
   ];
@@ -24,12 +25,6 @@ function Navbar() {
     { name: "About", url: "/about" },
     { name: "Contact", url: "/contact" },
   ];
-
-  const pathname = usePathname();
-
-  if (pathname.startsWith("/admin")) {
-    return null;
-  }
 
   return (
     <header className=" text-mywhite z-50">
