@@ -30,7 +30,7 @@ function HomeSlider() {
   const { images, loading } = useSelector((state: RootState) => state.general);
 
   return (
-    <div className="homepage-slider-div  mb-10">
+    <div className="homepage-slider-div ">
       {loading ? (
         <Loading />
       ) : (
@@ -38,17 +38,17 @@ function HomeSlider() {
           responsive={responsive}
           swipeable={true}
           draggable={true}
-          showDots={false}
-          arrows={true}
+          showDots={true}
+          arrows={false}
           ssr={true}
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={3000}
+          autoPlaySpeed={5000}
           keyBoardControl={true}
           customTransition="all .7s"
           transitionDuration={1000}
-          containerClass="carousel-container"
-          itemClass="flex justify-center items-center p-10 rounded-lg"
+          containerClass="carousel-container "
+          itemClass="flex justify-center items-center bg-center bg-cover "
         >
           {images?.map((image: CarouselType) => (
             <HomeSliderItem image={image} key={image.id} />

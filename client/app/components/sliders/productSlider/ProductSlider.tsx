@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import ProductsSliderItem from "./ProductSliderItem";
 import { Product } from "@/constans/Props";
-import Heading from "../../general/Heading";
 
 function ProductSlider() {
   const responsive = {
@@ -16,7 +15,7 @@ function ProductSlider() {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -33,13 +32,11 @@ function ProductSlider() {
   );
 
   return (
-    <div className="homepage-slider-div p-10 md:p-0   border-b ">
+    <div className="homepage-slider-div py-5   border-b  border-t ">
       {loading ? (
         <Loading />
       ) : (
         <>
-          <Heading text="New Season" center color="white" />
-
           <Carousel
             responsive={responsive}
             swipeable={true}

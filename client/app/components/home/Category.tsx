@@ -3,6 +3,7 @@
 import { RootState } from "@/store/store";
 import React from "react";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 import Loading from "../utils/Loading";
 
 function Category() {
@@ -11,17 +12,28 @@ function Category() {
   );
 
   return (
-    <div className="category-container p-3 md:p-8">
+    <div className="category-container p-4 md:p-8 h-full    ">
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-2  sm:grid-cols-2 lg:grid-cols-4 gap-3   ">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6 mx-auto container  ">
           {categories.map((category, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center cursor-pointer border border-gray-200 text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-900 rounded-lg shadow-lg transition-all transform hover:scale-105 h-[40px] md:h[70px]"
+              className="relative flex flex-col items-center justify-start cursor-pointer  text-white bg-gradient-to-r from-secondary to-primary hover:scale-105  shadow-lg overflow-hidden transform transition-all duration-300 rounded-lg h-[200px] md:h-full"
             >
-              <span className="font-semibold  text-xs md:text-sm lg:text-lg capitalize">
+              {/* Kategori Resmi */}
+              <div className="relative w-full h-[400px]">
+                <Image
+                  src={category.url}
+                  alt={category.name}
+                  fill
+                  className="transition-all duration-500 hover:opacity-80 object-cover object-center"
+                />
+              </div>
+
+              {/* Kategori Adı */}
+              <span className="absolute mt-5  font-semibold text-xl md:text-2xl lg:text-3xl  bg-black bg-opacity-50 px-4 py-2 rounded-lg shadow-lg capitalize">
                 {category.name}
               </span>
             </div>
@@ -30,12 +42,6 @@ function Category() {
       )}
     </div>
   );
-}
-
-{
-  /* <span className="text-4xl mb-2">
-{React.createElement(category.icon)} 
-</span> */
 }
 
 export default Category;

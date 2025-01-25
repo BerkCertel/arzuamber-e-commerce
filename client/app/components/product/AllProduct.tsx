@@ -8,6 +8,7 @@ import ProductCartItem from "./ProductCartItem";
 import Heading from "../general/Heading";
 import ReactPaginate from "react-paginate";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Filter from "../general/Filter";
 
 function AllProduct() {
   const { products, loading } = useSelector(
@@ -33,41 +34,46 @@ function AllProduct() {
   const pageCount = Math.ceil(products.length / productsPerPage);
 
   return (
-    <main className="p-6 sm:p-8  rounded-lg">
-      <Heading text="All Products" center />
+    <main className="mx-auto container  rounded-lg">
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 items-center p-10 md:p-10">
-            {currentProducts.map((product, i) => (
-              <ProductCartItem product={product} key={i} />
-            ))}
-          </div>
+        <div className="all-product-main-div">
+          <Heading text="All Products" center hr textSize="3xl" />
+          <div className="flex w-full h-full mt-3 gap-2">
+            <Filter />
+            <div className="w-full mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 items-center ">
+                {currentProducts.map((product, i) => (
+                  <ProductCartItem product={product} key={i} />
+                ))}
+              </div>
 
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel={
-              <span className="flex items-center justify-center w-8 h-8 text-mywhite bg-primary rounded-md hover:bg-primaryLight">
-                <FaChevronRight />
-              </span>
-            }
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
-            pageCount={pageCount}
-            previousLabel={
-              <span className="flex items-center justify-center w-8 h-8 text-mywhite bg-primary rounded-md hover:bg-primaryLight">
-                <FaChevronLeft />
-              </span>
-            }
-            renderOnZeroPageCount={null}
-            containerClassName="flex items-center justify-center space-x-2 mt-4"
-            pageClassName="mx-1"
-            pageLinkClassName="px-3 py-1 border rounded-md text-mywhite bg-primary hover:bg-secondaryLight"
-            activeClassName="font-bold rounded-md border-2 border-third bg-third text-mywhite"
-            disabledClassName="text-secondaryDark cursor-not-allowed"
-            breakClassName="text-secondary"
-          />
+              <ReactPaginate
+                breakLabel="..."
+                nextLabel={
+                  <span className="flex items-center justify-center w-8 h-8 text-mywhite bg-primary rounded-md hover:bg-primaryLight">
+                    <FaChevronRight />
+                  </span>
+                }
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel={
+                  <span className="flex items-center justify-center w-8 h-8 text-mywhite bg-primary rounded-md hover:bg-primaryLight">
+                    <FaChevronLeft />
+                  </span>
+                }
+                renderOnZeroPageCount={null}
+                containerClassName="flex items-center justify-center space-x-2 mt-4"
+                pageClassName="mx-1"
+                pageLinkClassName="px-3 py-1 border rounded-md text-mywhite bg-primary hover:bg-secondaryLight"
+                activeClassName="font-bold rounded-md border-2 border-third bg-third text-mywhite"
+                disabledClassName="text-secondaryDark cursor-not-allowed"
+                breakClassName="text-secondary"
+              />
+            </div>
+          </div>
         </div>
       )}
     </main>

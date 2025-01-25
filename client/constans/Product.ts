@@ -67,7 +67,7 @@ export const products: Product[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, nulla natus nostrum repellendus quam praesentium amet! Beatae nam eaque ipsam eveniet ullam aperiam rerum, consequuntur pariatur? Corporis molestias iusto id. Repellendus dolorum vitae minima sit et, omnis autem, incidunt quos inventore, totam magnam recusandae consequatur deleniti explicabo libero blanditiis sequi! Accusantium eius pariatur voluptatum debitis? Saepe consequuntur quasi voluptatem omnis explicabo laborum voluptatibus! Id unde doloribus esse possimus dolore magnam, quae similique qui hic, aperiam optio. Culpa ducimus assumenda necessitatibus, quia illum exercitationem eum sequi velit saepe ratione quos, nam quae quidem pariatur tenetur aperiam incidunt error maxime libero? Eaque id ut nihil voluptate labore. Voluptatum quis corporis dolorum, nam totam minus modi. Ipsam velit sit molestias labore quae aut non tenetur sed exercitationem quos, in eveniet aspernatur incidunt aliquam maxime alias ex quo reiciendis ea. Exercitationem velit soluta accusantium aliquid maxime pariatur! Eaque, non magnam? Nihil fugit cum nisi.",
     price: 2999,
-    category: "Shoes ",
+    category: "Shoes",
     discountPercent: 17,
     inStock: false,
     isNewSeason: true,

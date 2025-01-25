@@ -35,9 +35,16 @@ export interface Product {
   sizes: string[];
 }
 
-export interface Category {
-  name: string;
+export interface Subcategory {
   id: string;
+  name: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  url: string;
+  subcategories: Subcategory[];
 }
 
 export type CardProductProps = {

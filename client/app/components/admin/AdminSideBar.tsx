@@ -130,7 +130,7 @@ const SideBar = () => {
         {isOpen ? <FaTimes size={17} /> : <FaBars size={17} />}
       </button>
       <div
-        className={`fixed top-0 left-0 z-40 h-full md:h-[89vh] bg-primary transition-transform overflow-hidden ${
+        className={`px-3 fixed top-0 left-0 z-40 h-full md:h-[89vh] bg-primary transition-transform overflow-hidden ${
           isOpen
             ? "translate-x-0"
             : "-translate-x-full flex items-center justify-center w-full"
