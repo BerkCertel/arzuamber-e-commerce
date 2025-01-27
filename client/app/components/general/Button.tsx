@@ -9,7 +9,6 @@ interface ButtonProps {
   outline?: boolean;
   icon?: IconType | undefined;
   disabled?: boolean;
-  primary?: boolean;
   animation?: boolean;
   iconSize?: number;
   className?: string;
@@ -61,8 +60,7 @@ function Button({
       disabled={disabled}
       onClick={onClick}
     >
-      {Icon && <Icon size={iconSize} />}
-      {text}
+      {text} {Icon && <Icon size={iconSize} />}
     </button>
   );
 }

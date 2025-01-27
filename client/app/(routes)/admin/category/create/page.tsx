@@ -1,7 +1,8 @@
+import CategoryCreateForm from "@/app/components/admin/Category/CategoryCreateForm";
 import React from "react";
 
-function AdminCategoryCreate() {
-  return <div>AdminCategoryCreate</div>;
+function AdminCreateCategory() {
+  return <CategoryCreateForm />;
 }
 
-export default AdminCategoryCreate;
+export default AdminCreateCategory;

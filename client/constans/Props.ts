@@ -43,7 +43,7 @@ export interface Subcategory {
 export interface Category {
   id: string;
   name: string;
-  url: string;
+  image: string;
   subcategories: Subcategory[];
 }
 

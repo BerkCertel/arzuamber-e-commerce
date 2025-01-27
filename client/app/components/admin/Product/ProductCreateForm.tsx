@@ -1,19 +1,19 @@
 "use client";
 
 import { FieldValues, SubmitErrorHandler, useForm } from "react-hook-form";
-import Heading from "../general/Heading";
-import Input from "../general/Input";
-import CheckBox from "../general/CheckBox";
-import Button from "../general/Button";
+import Heading from "../../general/Heading";
+import Input from "../../general/Input";
+import CheckBox from "../../general/CheckBox";
+import Button from "../../general/Button";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import FileInput from "../general/FileInput";
+import FileInput from "../../general/FileInput";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-// import ChoiceInput from "../general/ChoiceInput";
-import Dropdown from "../general/DropDown";
+import Dropdown from "../../general/DropDown";
+import Image from "next/image";
 
-function CreateForm() {
+function ProductCreateForm() {
   const { categories } = useSelector((state: RootState) => state.categories);
 
   const {
@@ -31,24 +31,32 @@ function CreateForm() {
       inStock: false,
       isNewSeason: false,
       discountPercent: 0,
-      price: null,
+      price: 1,
     },
   });
 
   const [images, setImages] = useState<string[]>([]);
 
-  const handleImageChange = async (
-    index: number,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
 
-    const base64 = await convertBase64(file);
     const newImages = [...images];
-    newImages[index] = base64 as string;
+    for (let i = 0; i < files.length; i++) {
+      const base64 = await convertBase64(files[i]);
+      newImages.push(base64 as string);
+    }
     setImages(newImages);
 
+    setValue("images", newImages, {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  };
+
+  const handleImageRemove = (index: number) => {
+    const newImages = images.filter((_, i) => i !== index);
+    setImages(newImages);
     setValue("images", newImages, {
       shouldDirty: true,
       shouldValidate: true,
@@ -65,7 +73,7 @@ function CreateForm() {
   };
 
   const onSubmit: SubmitErrorHandler<FieldValues> = (data) => {
-    if (images.filter(Boolean).length < 2) {
+    if (images.length < 2) {
       toast.error("Please upload at least 2 images!!");
       return;
     }
@@ -92,9 +100,9 @@ function CreateForm() {
   };
 
   return (
-    <div className="w-full  h-full flex flex-col items-center justify-center  shadow-lx ">
+    <div className="w-full h-full flex flex-col items-center justify-center shadow-lx">
       <form
-        className="w-[90%]   my-1 shadow-xl  px-7 py-4 space-y-5   bg-gray-200 rounded-lg overflow-hidden flex items-center justify-start flex-col "
+        className="w-[90%] my-1 shadow-xl px-7 py-4 space-y-5 bg-gray-200 rounded-lg overflow-hidden flex items-center justify-start flex-col"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Heading
@@ -128,6 +136,15 @@ function CreateForm() {
             errors={errors}
             register={register}
           />
+          <Input
+            placeholder="Discount Percent"
+            id="discountPercent"
+            type="number"
+            min={0}
+            max={99}
+            errors={errors}
+            register={register}
+          />
 
           <Dropdown
             options={categories}
@@ -138,7 +155,6 @@ function CreateForm() {
         </div>
 
         <div className="flex justify-around items-center space-x-4 w-full">
-          {/* Checkbox Section  */}
           <CheckBox
             label="Is the product active?"
             id="isActive"
@@ -147,39 +163,43 @@ function CreateForm() {
           <CheckBox label="New season?" id="isNewSeason" register={register} />
         </div>
 
-        {/* File Upload Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 p-4 w-full ">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-start p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full "
-            >
-              <FileInput
-                id={`image-${index}`}
-                label={`
-                  ${index === 0 ? "Front" : ""}
-                         ${index === 1 ? "Back " : ""}
-                  Image ${index + 1}`}
-                onChange={(e) => handleImageChange(index, e)}
-                errors={errors}
-              />
-            </div>
-          ))}
+        <div className="flex flex-col items-start   w-full ">
+          <FileInput
+            id="image-upload"
+            label="Upload Images"
+            onChange={handleImageChange}
+            multiple
+            errors={errors}
+            register={register}
+            FileButton={false}
+            Filespan={false}
+            required
+          />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 w-full ">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center space-y-3 space-x-2 border border-secondary rounded-lg p-2"
+              >
+                <div>{index == 1 ? <p></p> : <p></p>}</div>
+                <Image
+                  src={image}
+                  alt={`Image ${index + 1}`}
+                  width={100} // Define width for better control
+                  height={100} // Define height for better control
+                  className="w-full h-[70px] object-contain bg-center bg-cover " // Small size for previews
+                />
+                <Button
+                  onClick={() => handleImageRemove(index)}
+                  animation
+                  text="Delete"
+                  size="small"
+                  className=" h-10 bg-red-500 text-white"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Category Section */}
-        {/* <div className="w-full flex flex-wrap gap-4 justify-center">
-          {categories.map((cat) => (
-            <ChoiceInput
-              key={cat.id}
-              text={cat.name}
-              selected={category === cat.name}
-              onClick={() => setCustomValue("category", cat.name)}
-            />
-          ))}
-        </div> */}
-
-        {/* Submit Button */}
-
         <Button
           animation
           color="secondary"
@@ -193,4 +213,4 @@ function CreateForm() {
   );
 }
 
-export default CreateForm;
+export default ProductCreateForm;

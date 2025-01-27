@@ -6,12 +6,12 @@ import Input from "@/app/components/general/Input";
 import Link from "next/link";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { IoLogoGoogleplus } from "react-icons/io";
+import RichTextBox from "../general/RichTextBox";
 
 function RegisterForm() {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm<FieldValues>();
   const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
@@ -52,7 +52,13 @@ function RegisterForm() {
             errors={errors}
             register={register}
           />
-
+          <RichTextBox
+            placeholder="Adress"
+            id="adress"
+            register={register}
+            errors={errors}
+            required
+          />
           <div className="flex flex-col space-y-3">
             <Button
               text="Register"

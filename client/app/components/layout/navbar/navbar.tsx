@@ -27,7 +27,7 @@ function Navbar() {
   ];
 
   return (
-    <header className="text-mywhite z-10 fixed w-full">
+    <header className="text-mywhite z-50 fixed w-full">
       {/* Top Bar */}
       <div className="top-bar hidden md:flex justify-center items-center bg-secondaryLight text-sm py-2">
         Up to <span className="text-myblack px-1">50% Off</span> on New Season

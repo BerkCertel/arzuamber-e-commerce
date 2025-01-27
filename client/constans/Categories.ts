@@ -2,7 +2,8 @@ export const categoryList = [
   {
     id: "1",
     name: "Clothing",
-    url: "https://res.cloudinary.com/dgoothqal/image/upload/v1737810626/category2_xvczsa.webp",
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1737810626/category2_xvczsa.webp",
     subcategories: [
       { id: "1-1", name: "Casual Wear" },
       { id: "1-2", name: "Formal Wear" },
@@ -13,7 +14,8 @@ export const categoryList = [
   },
   {
     id: "2",
-    url: "https://res.cloudinary.com/dgoothqal/image/upload/v1730408912/samples/two-ladies.jpg",
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408912/samples/two-ladies.jpg",
     name: "Accessories",
     subcategories: [
       { id: "2-1", name: "Hats" },
@@ -25,7 +27,8 @@ export const categoryList = [
   },
   {
     id: "3",
-    url: "https://res.cloudinary.com/dgoothqal/image/upload/v1737810626/category3_gowoyk.webp",
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1737810626/category3_gowoyk.webp",
     name: "Footwear",
     subcategories: [
       { id: "3-1", name: "Sneakers" },
@@ -37,7 +40,8 @@ export const categoryList = [
   },
   {
     id: "4",
-    url: "https://res.cloudinary.com/dgoothqal/image/upload/v1737810625/category1_s7lty9.webp",
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1737810625/category1_s7lty9.webp",
     name: "Jewelry",
     subcategories: [
       { id: "4-1", name: "Necklaces" },
@@ -49,7 +53,8 @@ export const categoryList = [
   },
   {
     id: "5",
-    url: "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/samples/woman-on-a-football-field.jpg",
+    image:
+      "https://res.cloudinary.com/dgoothqal/image/upload/v1730408918/samples/woman-on-a-football-field.jpg",
     name: "Beauty Products",
     subcategories: [
       { id: "5-1", name: "Skincare" },

@@ -12,7 +12,7 @@ function AdminLayout({ children }: AdminLayoutProps) {
     <div className="flex h-full ">
       <SideBar />
       <div className="w-full h-full flex bg-secondary overflow-hidden">
-        <main className="w-full h-auto my-4 md:my-0 overflow-auto border-l">
+        <main className="w-full h-[95%] my-5  overflow-auto lg:border-l">
           {children}
         </main>
       </div>

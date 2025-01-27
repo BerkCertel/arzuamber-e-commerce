@@ -25,7 +25,7 @@ function Category() {
               {/* Kategori Resmi */}
               <div className="relative w-full h-[400px]">
                 <Image
-                  src={category.url}
+                  src={category.image}
                   alt={category.name}
                   fill
                   className="transition-all duration-500 hover:opacity-80 object-cover object-center"

@@ -69,7 +69,7 @@ function AllProduct() {
                 pageClassName="mx-1"
                 pageLinkClassName="px-3 py-1 border rounded-md text-mywhite bg-primary hover:bg-secondaryLight"
                 activeClassName="font-bold rounded-md border-2 border-third bg-third text-mywhite"
-                disabledClassName="text-secondaryDark cursor-not-allowed"
+                disabledClassName="text-myblack cursor-not-allowed"
                 breakClassName="text-secondary"
               />
             </div>

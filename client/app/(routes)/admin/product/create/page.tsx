@@ -1,7 +1,7 @@
-import CreateForm from "@/app/components/admin/CreateForm";
+import ProductCreateForm from "@/app/components/admin/Product/ProductCreateForm";
 
 function AdminCreateProduct() {
-  return <CreateForm />;
+  return <ProductCreateForm />;
 }
 
 export default AdminCreateProduct;
