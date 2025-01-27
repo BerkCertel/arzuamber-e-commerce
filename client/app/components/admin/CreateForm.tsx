@@ -92,9 +92,9 @@ function CreateForm() {
   };
 
   return (
-    <div className="w-full  h-full  flex flex-col items-center justify-center  shadow-lx ">
+    <div className="w-full  h-full flex flex-col items-center justify-center  shadow-lx ">
       <form
-        className="w-[90%] h-full  my-1 shadow-xl  px-7 py-4 space-y-5   bg-gray-200 rounded-lg overflow-hidden flex items-center justify-start flex-col "
+        className="w-[90%]   my-1 shadow-xl  px-7 py-4 space-y-5   bg-gray-200 rounded-lg overflow-hidden flex items-center justify-start flex-col "
         onSubmit={handleSubmit(onSubmit)}
       >
         <Heading
@@ -182,11 +182,11 @@ function CreateForm() {
 
         <Button
           animation
-          primary
+          color="secondary"
           size="small"
           text="Ürünü Oluştur"
           onClick={handleSubmit(onSubmit)}
-          className="w-5/6 bg-secondary"
+          className="w-5/6"
         />
       </form>
     </div>

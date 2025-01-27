@@ -116,7 +116,7 @@ const DetailClient = ({ product }: productProps) => {
   const [open, setOpen] = useState(false);
 
   // line clamp state
-  const [lineClamp, setLineClamp] = useState<boolean>(false);
+  const [lineClamp, setLineClamp] = useState<boolean>(true);
 
   const handleClamp = () => {
     setLineClamp(!lineClamp);

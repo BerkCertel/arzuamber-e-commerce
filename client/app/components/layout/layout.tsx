@@ -4,14 +4,21 @@ import React from "react";
 import Navbar from "./navbar/navbar";
 import Footer from "./footer/footer";
 import { ToastContainer } from "react-toastify";
+import { usePathname } from "next/navigation";
 
 interface RoutesLayoutProps {
   children: React.ReactNode;
 }
 
 function LayoutProvider({ children }: RoutesLayoutProps) {
+  const pathname = usePathname();
+
   return (
-    <div className="flex flex-col h-full">
+    <div
+      className={`flex flex-col ${
+        pathname.startsWith("/admin") ? "h-screen" : "h-full"
+      }`}
+    >
       <Navbar />
       <ToastContainer />
       <main className="flex-grow mt-16 md:mt-28">{children}</main>

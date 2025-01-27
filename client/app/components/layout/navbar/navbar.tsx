@@ -94,23 +94,27 @@ function Navbar() {
               </Link>
             </li>
             <li
-              className="relative flex flex-col space-y-9"
+              className="relative flex flex-col items-center justify-center"
               onMouseEnter={() => setOpenDropdown(true)}
               onMouseLeave={() => setOpenDropdown(false)}
             >
-              <div className="border rounded-lg py-1 px-2 border-secondary transition duration-300 ">
-                <div className="flex items-center space-x-2 cursor-pointer text-secondary">
-                  <FaUser size={20} />
-                  <p className="capitalize text-xl">berk</p>
+              {/* Kullanıcı Simgesi */}
+              <div className="transition duration-300 w-full">
+                <div className="flex items-center justify-center cursor-pointer text-secondary border border-gray-300 rounded-full p-2">
+                  <FaUser size={28} />
                 </div>
               </div>
+              {/* Açılır Menü */}
               {openDropdown && (
-                <div className="absolute left-0 right-0 p-1 bg-mywhite text-myblack shadow-xl rounded text-md font-thin flex flex-col border text-center">
+                <div
+                  className={`absolute mt-4 top-7 bg-mywhite text-myblack shadow-xl rounded-md text-sm font-thin flex flex-col justify-center items-center border border-gray-300 text-center transition-all duration-300 w-28`}
+                >
                   {menuItems.map((item, i) => (
                     <Link
                       key={i}
                       href={item.url}
-                      className="hover:bg-gray-200 rounded px-2 py-1"
+                      className="hover:bg-gray-200 rounded px-4 py-2 w-full text-center truncate"
+                      title={item.name}
                     >
                       {item.name}
                     </Link>
@@ -123,38 +127,37 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {openMenu && (
-          <ul className="lg:hidden justify-center items-center flex flex-col border-t-2 text-myblack border-black p-4 space-y-4 border-b-2">
+          <ul className="lg:hidden justify-center items-center flex flex-col border-t-2 text-myblack border-black p-4 space-y-4 border-b-2 ">
             {navLinks.map((link) => (
               <li key={link.url}>
                 <Link
                   href={link.url}
-                  className="block text-lg  underline underline-offset-4 bg px-2 rounded-md"
+                  className="block text-lg underline underline-offset-4 px-2 rounded-md"
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
             <div className="flex items-center gap-4 mt-4">
-              <BiSearch className="text-3xl cursor-pointer " />
-              <BsCart2 className="text-3xl cursor-pointer " />
-              <FaHeart className="text-2xl cursor-pointer " />
+              <BiSearch size={30} className="cursor-pointer hover:opacity-60" />
+              <BsCart2 size={30} className="cursor-pointer hover:opacity-60" />
+              <FaHeart size={28} className="cursor-pointer hover:opacity-60" />
             </div>
-            <li>
+            <li className="flex items-center justify-center">
               <div className="relative">
                 <div
-                  className="flex items-center space-x-2 cursor-pointer border rounded-md p-2 hover:opacity-60 border-black"
+                  className="flex items-center justify-center space-x-2 border rounded-full p-2 hover:opacity-60 border-black cursor-pointer"
                   onClick={() => setOpenDropdown(!openDropdown)}
                 >
-                  <FaUser />
-                  <p className="capitalize ">berk</p>
+                  <FaUser size={20} />
                 </div>
                 {openDropdown && (
-                  <div className="absolute right-0 left-0 mt-1 bg-fourth text-mywhite shadow-xl rounded p-2 flex flex-col space-y-2 border p z-50">
+                  <div className="absolute top-9 left-1/2 transform -translate-x-1/2 mt-2 w-32 bg-secondary text-mywhite border-myblack shadow-xl rounded-md p-2 flex flex-col items-center space-y-2 border z-50 ">
                     {menuItems.map((item, i) => (
                       <Link
                         key={i}
                         href={item.url}
-                        className="text-center hover:bg-secondary rounded"
+                        className="w-full text-center hover:bg-third rounded-md text-sm px-2 py-1"
                       >
                         {item.name}
                       </Link>

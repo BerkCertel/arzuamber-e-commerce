@@ -30,17 +30,17 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
 
   return (
     <div
-      className="flex justify-center items-center flex-col space-y-1  rounded-lg   transition duration-500 h-[500px] p-5 sm:w-full md:w-[300px]  "
+      className="flex justify-center items-center flex-col space-y-1  rounded-lg   transition duration-500 h-[500px] p-5 w-[300px]  "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative  rounded-xl">
+      <div className="relative ">
         <div
-          className={`flex flex-col items-start justify-start top-6 left-5 space-y-3 z-50 absolute inset-0 ${
+          className={`flex flex-col items-start justify-start top-3 md:top-6 left-5 space-y-3 z-50 absolute inset-0 ${
             isHovered ? "visible" : " visible md:invisible"
           }`}
         >
-          <div className="flex flex-col gap-2 w-full transition-all ">
+          <div className=" absolute  flex flex-col gap-2 w-full transition-all duration-300 ">
             <button className="flex items-center justify-center w-8 h-8 bg-primary text-mywhite rounded-lg hover:bg-primaryLight hover:scale-110  shadow-md">
               <IoCart size={18} />
             </button>
@@ -55,7 +55,7 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
             </Link>
           </div>
         </div>
-        <div className="w-[400px] h-[350px]">
+        <div className="w-[300px] md:w-[400px] h-[350px]">
           <Image
             className={`absolute object-contain  rounded transition-opacity duration-700  ${
               isHovered ? "opacity-0" : "opacity-100 z-20"
@@ -77,7 +77,6 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
       </div>
 
       <div className="flex flex-col justify-start items-start gap-2 w-full">
-        {/* <h2 className="font-bold text-lg mt-2">{TextClip(product?.name)}</h2> */}
         <Rating
           name="read-only"
           value={ratingResult}
@@ -93,9 +92,9 @@ function ProductsSliderItem({ product }: ProductsSliderItemProps) {
         <p className="text-slate-500 text-xs text-s">
           Original Price: <span className="line-through">{product.price}₺</span>
         </p>
-        <p className="text-green-600 text-sm">
+        <p className=" text-sm">
           Discounted Price:
-          <strong>
+          <strong className="ml-1 text-green-600">
             {(
               product.price -
               (product.price * product.discountPercent) / 100

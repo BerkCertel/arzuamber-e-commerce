@@ -1,7 +1,7 @@
 import React from "react";
 
 function AdminPage() {
-  return <div>SummaryPage</div>;
+  return <div className="w-full ">SummaryPage</div>;
 }
 
 export default AdminPage;

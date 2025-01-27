@@ -9,3 +9,26 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+{
+      name: "Blogs",
+      icon: IoMdStarOutline,
+      options: [
+        {
+          name: "All Blog",
+          icon: FaRegListAlt,
+          url: "/admin/blog",
+        },
+        {
+          name: "Create Blog",
+          icon: IoMdStarOutline,
+          url: "/admin/blog/create",
+        },
+        { name: "Update Blog", icon: RxUpdate, url: "/admin/blog/update" },
+        {
+          name: "Delete Blog",
+          icon: TiDeleteOutline,
+          url: "/admin/blog/delete",
+        },
+      ],
+    },

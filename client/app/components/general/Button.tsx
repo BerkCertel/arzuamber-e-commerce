@@ -5,6 +5,7 @@ interface ButtonProps {
   text?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   size?: "icon" | "small" | "medium" | "large";
+  color?: "primary" | "secondary" | "third" | "fourth";
   outline?: boolean;
   icon?: IconType | undefined;
   disabled?: boolean;
@@ -22,10 +23,10 @@ function Button({
   outline,
   disabled,
   icon: Icon,
-  primary,
   animation,
   iconSize = 20,
   className,
+  color = "primary",
 }: ButtonProps) {
   const sizeClasses = {
     icon: "w-[40px] h-[40px]",
@@ -34,20 +35,28 @@ function Button({
     large: "w-full",
   };
 
+  const colorClasses = {
+    primary: "bg-primary text-mywhite",
+    secondary: "bg-secondary text-mywhite",
+    third: "bg-third text-mywhite",
+    fourth: "bg-fourth text-mywhite",
+  };
+
+  const buttonClasses = outline
+    ? `border-2 border-${color} text-${color}`
+    : colorClasses[color];
+
   return (
     <button
       className={`rounded-lg p-3 flex justify-center items-center gap-2 text-center text-base   
         ${className}
-      ${outline ? "border text-black" : "bg-black text-white"} ${
-        sizeClasses[size]
-      } 
-      ${
-        animation
-          ? "hover:brightness-110 hover:scale-105 transition-all duration-300"
-          : ""
-      }
-      ${primary ? "bg-primaryLight text-mywhite" : ""}
-      ${disabled ? "cursor-not-allowed bg-thirdLight" : ""}
+        ${buttonClasses} 
+        ${sizeClasses[size]} 
+        ${
+          animation
+            ? "hover:brightness-110 hover:scale-105 transition-all duration-300"
+            : ""
+        }
       `}
       disabled={disabled}
       onClick={onClick}

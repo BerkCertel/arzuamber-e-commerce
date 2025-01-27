@@ -13,9 +13,9 @@ function Brand() {
   };
 
   return (
-    <div className="w-full h-[650px] relative my-3 md:my-10">
+    <div className="w-full h-[650px] relative my-3 md:my-5">
       <Image
-        className="object-cover bg-center  md:rounded-lg"
+        className="object-cover bg-center "
         src="/images/Brand/single-campaign.png"
         alt="New Season Collection"
         fill
@@ -30,8 +30,8 @@ function Brand() {
         </p>
 
         <Button
-          primary
           animation
+          color="secondary"
           size="small"
           text="View Products"
           onClick={handleClick}

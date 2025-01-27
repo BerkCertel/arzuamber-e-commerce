@@ -1,191 +1,100 @@
 import React, { useState } from "react";
-import { IoMdHome, IoMdStarOutline } from "react-icons/io";
-import { MdSpaceDashboard, MdEventNote, MdCategory } from "react-icons/md";
-import { RxUpdate } from "react-icons/rx";
-import { TiDeleteOutline } from "react-icons/ti";
+import { IoMdHome } from "react-icons/io";
+import { MdCategory } from "react-icons/md";
 import { AiFillProduct } from "react-icons/ai";
+import Heading from "../general/Heading";
+import { FaRegListAlt, FaPlus, FaMinus } from "react-icons/fa";
 import Link from "next/link";
-import Button from "../general/Button";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { FaRegListAlt } from "react-icons/fa";
 
 const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const adminPanel = [
     {
       name: "General",
-      icon: AiFillProduct,
+      icon: IoMdHome,
       options: [
-        {
-          name: "Go to home",
-          icon: IoMdHome,
-          url: "/",
-        },
-        {
-          name: "Summary",
-          icon: MdSpaceDashboard,
-          url: "/admin",
-        },
-        {
-          name: "Orders",
-          icon: MdEventNote,
-          url: "/admin/orders",
-        },
+        { name: "Go to Home", url: "/" },
+        { name: "Summary", url: "/admin" },
+        { name: "Orders", url: "/admin/orders" },
       ],
     },
     {
       name: "Products",
       icon: AiFillProduct,
       options: [
-        {
-          name: "All Product",
-          icon: FaRegListAlt,
-          url: "/admin/product",
-        },
-        {
-          name: "Create Product",
-          icon: IoMdStarOutline,
-          url: "/admin/product/create",
-        },
-        {
-          name: "Update Product",
-          icon: RxUpdate,
-          url: "/admin/product/update",
-        },
-        {
-          name: "Delete Product",
-          icon: TiDeleteOutline,
-          url: "/admin/product/delete",
-        },
+        { name: "All Product", url: "/admin/product" },
+        { name: "Create Product", url: "/admin/product/create" },
+        { name: "Update Product", url: "/admin/product/update" },
+        { name: "Delete Product", url: "/admin/product/delete" },
       ],
     },
     {
       name: "Categories",
       icon: MdCategory,
       options: [
-        {
-          name: "All Category",
-          icon: FaRegListAlt,
-          url: "/admin/category",
-        },
-        {
-          name: "Create Category",
-          icon: IoMdStarOutline,
-          url: "/admin/category/create",
-        },
-        {
-          name: "Update Category",
-          icon: RxUpdate,
-          url: "/admin/category/update",
-        },
-        {
-          name: "Delete Category",
-          icon: TiDeleteOutline,
-          url: "/admin/category/delete",
-        },
+        { name: "All Category", url: "/admin/category" },
+        { name: "Create Category", url: "/admin/category/create" },
+        { name: "Update Category", url: "/admin/category/update" },
+        { name: "Delete Category", url: "/admin/category/delete" },
       ],
     },
     {
       name: "Blogs",
-      icon: IoMdStarOutline,
+      icon: FaRegListAlt,
       options: [
-        {
-          name: "All Blog",
-          icon: FaRegListAlt,
-          url: "/admin/blog",
-        },
-        {
-          name: "Create Blog",
-          icon: IoMdStarOutline,
-          url: "/admin/blog/create",
-        },
-        { name: "Update Blog", icon: RxUpdate, url: "/admin/blog/update" },
-        {
-          name: "Delete Blog",
-          icon: TiDeleteOutline,
-          url: "/admin/blog/delete",
-        },
+        { name: "All Blog", url: "/admin/blog" },
+        { name: "Create Blog", url: "/admin/blog/create" },
+        { name: "Update Blog", url: "/admin/blog/update" },
+        { name: "Delete Blog", url: "/admin/blog/delete" },
       ],
     },
   ];
 
-  const handleItemClick = (itemName: string) => {
-    setSelectedItem((prevSelectedItem) =>
-      prevSelectedItem === itemName ? null : itemName
-    );
+  const toggleMenu = (menuName: string) => {
+    setOpenMenu((prevMenu) => (prevMenu === menuName ? null : menuName));
   };
 
   return (
-    <>
-      <button
-        onClick={toggleSidebar}
-        className="fixed h-8 w-8 top-20 left-6 md:top-2 md:right-12 z-50 lg:hidden p-2 text-white bg-secondary border border-mywhite rounded-lg flex items-center justify-center "
-      >
-        {isOpen ? <FaTimes size={17} /> : <FaBars size={17} />}
-      </button>
-      <div
-        className={`px-3 fixed top-0 left-0 z-40 h-full md:h-[89vh] bg-primary transition-transform overflow-hidden ${
-          isOpen
-            ? "translate-x-0"
-            : "-translate-x-full flex items-center justify-center w-full"
-        } lg:translate-x-0 lg:static lg:flex lg:w-72`}
-      >
-        <div className="flex flex-col justify-center items-center w-72 h-full space-y-2">
-          <div className="flex justify-center items-center flex-col gap-4">
-            <Link
-              href={`/`}
-              className="text-white underline underline-offset-4 text-2xl md:text-3xl font-bold font-serif"
+    <div className="w-64 bg-secondary text-mywhite h-full p-4  ">
+      <Heading text="Admin Panel" textSize="xl" color="white" hr />
+      <ul className="space-y-4 mt-3">
+        {adminPanel.map((menu) => (
+          <li key={menu.name}>
+            <div
+              className="flex items-center justify-between cursor-pointer p-3 rounded-md hover:bg-third border- "
+              onClick={() => toggleMenu(menu.name)}
             >
-              ARZUAMBER
-            </Link>
-          </div>
-          <nav className="flex flex-col items-center justify-between gap-3 mt-">
-            <ul className="flex w-full flex-col items-center space-y-2">
-              {adminPanel.map((admin) => (
-                <div
-                  key={admin.name}
-                  onClick={() => handleItemClick(admin.name)}
-                  className={`w-full block relative`}
-                >
-                  <Button
-                    className={`text-xs md:text-base ${
-                      selectedItem === admin.name
-                        ? "bg-third text-mywhite z-50"
-                        : ""
-                    }`}
-                    icon={admin.icon}
-                    size="small"
-                    text={admin.name}
-                  />
-
-                  {/* Mobile - toggle options visibility */}
-                  {selectedItem === admin.name && admin.options.length > 0 && (
-                    <div className="md:relative md:-top-2 md:left-5 mt-2 md:mt-0 flex flex-col items-center justify-center w-full z-1 bg-secondary rounded-md ">
-                      {admin.options.map((option) => (
-                        <Link href={option.url} key={option.name}>
-                          <Button
-                            className="bg-secondary text-center hover:bg-fourth text-xs md:text-base"
-                            icon={option.icon}
-                            text={option.name}
-                            size="small"
-                          />
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </>
+              <div className="flex items-center gap-3">
+                <menu.icon size={20} />
+                <span>{menu.name}</span>
+              </div>
+              <span>
+                {openMenu === menu.name ? (
+                  <FaMinus size={10} />
+                ) : (
+                  <FaPlus size={10} />
+                )}
+              </span>
+            </div>
+            {openMenu === menu.name && (
+              <ul className="mt-2 ml-6 space-y-2 border-l rounded-md border-mywhite">
+                {menu.options.map((option) => (
+                  <li key={option.name}>
+                    <Link
+                      className="block p-2 rounded-md text-sm hover:bg-third ml-1"
+                      href={option.url}
+                    >
+                      {option.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

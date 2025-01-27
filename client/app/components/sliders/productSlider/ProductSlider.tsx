@@ -51,7 +51,7 @@ function ProductSlider() {
             customTransition="all .7s"
             transitionDuration={1000}
             containerClass="carousel-container"
-            itemClass="flex justify-center items-center p-0 md:p-10"
+            itemClass="flex justify-center items-center  md:p-10"
           >
             {products?.map((product: Product) => (
               <ProductsSliderItem product={product} key={product.id} />

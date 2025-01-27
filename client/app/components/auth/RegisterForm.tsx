@@ -1,66 +1,85 @@
 "use client";
 
-import React from "react";
-import { useForm } from "react-hook-form";
-import Input from "../general/Input";
-import Button from "../general/Button";
+import Button from "@/app/components/general/Button";
+import Heading from "@/app/components/general/Heading";
+import Input from "@/app/components/general/Input";
+import Link from "next/link";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { IoLogoGoogleplus } from "react-icons/io";
 
 function RegisterForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log("Register Data:", data);
-  };
+    formState: { errors },
+  } = useForm<FieldValues>();
+  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
 
   return (
-    <div className="bg-white p-6 rounded shadow-md w-full max-w-md mx-auto">
-      <h2 className="text-2xl font-bold mb-4 text-primary">Register</h2>
-      <form>
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Full Name
-          </label>
-          <input
-            type="text"
+    <div className="h-full min-h-screen flex items-center justify-center bg-[url('/images/Brand/single-campaign.png')] bg-cover bg-center p-6 bg-opacity-75">
+      <div className="w-full max-w-md bg-mywhite rounded-xl p-6 shadow-xl space-y-4">
+        <Heading
+          center
+          text="Create an Account"
+          font="bold"
+          textSize="2xl"
+          color="black"
+        />
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input
             id="name"
-            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            placeholder="Name"
+            type="text"
+            required
+            errors={errors}
+            register={register}
           />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Email Address
-          </label>
-          <input
-            type="email"
+          <Input
             id="email"
-            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            placeholder="Email"
+            type="email"
+            required
+            errors={errors}
+            register={register}
           />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Password
-          </label>
-          <input
-            type="password"
+          <Input
             id="password"
-            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            placeholder="Password"
+            type="password"
+            required
+            errors={errors}
+            register={register}
           />
+
+          <div className="flex flex-col space-y-3">
+            <Button
+              text="Register"
+              type="submit"
+              animation
+              size="small"
+              className="w-full bg-primary hover:bg-primaryDark text-mywhite py-2 rounded-lg"
+            />
+            <Button
+              size="small"
+              outline
+              icon={IoLogoGoogleplus}
+              iconSize={23}
+              className="w-full bg-transparent hover:bg-primaryLight border border-primary text-primary hover:text-mywhite rounded-lg py-2"
+            />
+          </div>
+        </form>
+
+        <div className="text-center">
+          <Link
+            href={`/login`}
+            className="text-md text-primary font-semibold hover:underline"
+          >
+            Already have an account? Login
+          </Link>
         </div>
-        <Button text="Register" size="large" primary />
-      </form>
+      </div>
     </div>
   );
 }
